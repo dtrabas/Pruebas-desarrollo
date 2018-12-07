@@ -303,7 +303,7 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 
 	Mergea los cambios de la rama indicada sobre la rama actual.
 	
-	Se dice que se hace Fast-Forward cuando mergeas un commit con un commit que puede ser alcanzado siguiendo la historia del primer commit. En otras palabras, el commit de la rama que vas a mergear viene directamente del commit de la rama en la que estás.
+	Se dice que se hace Fast-Forward cuando mergeas un commit con otro commit que puede ser alcanzado siguiendo la historia del primer commit. En otras palabras, el commit de la rama que vas a mergear viene directamente del commit de la rama en la que estás.
 	
 	El merge será Recursive cuando el commit que mergeamos no es un descendiente directo del commit sobre el que hacemos el merge. Git Crea un nuevo snapshot a partir de los snapshot de cada commit. En este caso, se permite indicar un mensaje con el parámetro -m 'Mensaje del merge...':
 	
