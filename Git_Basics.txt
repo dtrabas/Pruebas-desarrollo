@@ -160,7 +160,7 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 		--all -- <path> --> Muestra los commits que han modificado el fichero indicado
 		
 
-* git show --pretty="" --name-only  <COMMIT>
+* git show --pretty="" --name-only  <ID_DEL_COMMIT>
 
 	Muestra la lista de los ficheros que fueron modificados en el commit indicado
 	
