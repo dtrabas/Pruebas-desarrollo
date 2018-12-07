@@ -1,4 +1,4 @@
-Notas Resumen Scrum blog Javier Garzas
+Notas Resumen Scrum blog Javier Garzás
 ======================================
 
 * Scrum (que no se escribe todo en mayúsculas, porque no es un acrónimo) es una “metodología” ágil para, importante, la gestión de proyectos. Más que una metodología (las metodologías ágiles no existen) se trata de un marco de trabajo (framework) o conjunto de buenas prácticas.
