@@ -315,6 +315,8 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 	
 	Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error 'error: The branch 'hotfix2' is not fully merged' y necesitas ejecutar el comando así ''git branch -D hotfix2'
 	
+	Ojo2: cuando borras la rama, ésta deja de aparecer en el SourceTree...
+	
 =====================
   Deshaciendo cosas	
 =====================
