@@ -1,5 +1,5 @@
 ==========================================================
-RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2) XXXXX
+RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 ==========================================================
 
 ==============
@@ -68,7 +68,11 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2) XXXXX
 		target/
 		/bin/
 		
-	Si queremos omitir un tipo de archivo en todas las subcarpetas: **.tipo
+	Si queremos omitir un tipo de archivo en todas las subcarpetas: 
+	
+		**.tipo
+	
+	Por ejemplo, para omitir todos los archivos con extensión tmp: **.tmp
 			
 * git add <file>
 
@@ -127,37 +131,129 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2) XXXXX
 	
 * git log
 
-	 Muestra los commits realizados sobre el repositorio en orden cronológico inverso, es decir, el commit mas reciente se muestra el primero.
-	 
-	Parámetros interesantes:
+	Muestra los commits realizados sobre el repositorio en orden cronológico inverso, es decir, el commit mas reciente se muestra el primero.
 	
-		--follow -- <file>	--> muestra los commits del fichero indicado
-
+	Las características avanzadas de este comando pueden dividirse en dos categorías: 
 	
-		-<número> 		--> muestra el número indicado de commmits
+		1) Formatear como se muestra cada commit
 		
-		-p ó --patch	-->	muestra los cambios de cada commit
+		2) Filtrar que commits se incluyen en la salida
 		
-		--stat			--> muestra por cada commit estadísticas abreviadas (ficheros modificados, resumen de cambios, etc)
+	Parámetros utilizados para el formateo:
+	
+		--oneline	-->	Condensa cada commit en una única línea
 		
+		--decorate	--> Muestra todas las referencias (ramas, tags, etc) que apuntan a cada commit
+		
+		--stat		--> Muestra el número de inserciones y borrados de cada commit 
+		                La cantidad de signos + y - a lado de cada nombre de archivo indica el número relativo de cambios a cada fichero alterados por el commit. Esto te da una idea de donde están los cambios del commit.
+						
+		                (ojo: modificar una línea se representa como 1 insertion y 1 deletion)
+						
+		-p 			--> Muestra los cambios realizados a cada fichero del commit
+		--patch
+		
+		--graph		--> Dibuja un gráfico ASCII representando la estructura de ramas de la historia del commit. 
+						Suele utilizarse junto a --oneline y --decorate para facilitar determinar visualmente que commit pertenece a que rama.
+						
+							git log --graph --oneline --decorate
+							
+						El asterisco muestra sobre que rama se hizo el commit.
+						
+		--pretty=format:"<string>"	-->	Permite mostrar cada commit como nos de la gana usando los mismos placeholders que usamos en el comando 'printf' de C
+		
+										Por ejemplo, en el siguiente comando:
+										
+											git log --pretty=format:"%cn committed %h on %cd"
+											
+										Los placeholders se sustituyen de la siguiente forma:
+										
+											%cn --> Autor del commit
+											%h	--> Hash del commit
+											%cd --> Fecha del commit
+											
+										La lista completa de placeholders se puede buscar en Internet.
+		
+										Este comando es muy útil cuando necesitas usar la salida del comando git log como entrada para otro programa (pipe)
+										
 		--pretty=oneline --> muestra un commit por línea
+										
+	
+	Parámetros utilizados para filtrar que commits se incluyen en la salida:
+	
+		-NumCommits	--> Limita la salida al nº de comits indicado
 		
-		--graph			--> Display an ASCII graph of the branch and merge history beside the log output.
+		--after		--> Limita la salida a los commits anteriores o posteriores a la fecha indicada entre comillas dobles.
+		--before		OJO: la fecha debe ir en formato yyyy-mm-dd
 		
-		--since=2.days	--> Limita la salida a los commits de los últimos dos días (o weeks o years o una mezcla de todos ellos)
+						p.ej.: git log --after="2019-12-01"
+							   git log --before="yesterday"
+							   
+						Para buscar commits que creados en un periodo:
+						
+							   git log --after="2018-12-01" --before="2018-12-31"
+							   
+						Para buscar los commits de los últimos 3 días
+						
+								git log --after=3.days
+							   
+		--since		--> Son sinónimos de --after y --before respectivamente
+		--until
 		
-		--until, --before --> Limit the commits to those made before the specified date.
+		--author	--> Muestra únicamente los commits creados por el autor indicado entre comillas dobles
+		
+							git log --author="Daniel"
+							
+						El nombre del autor no tiene por qué coincidir excatamente. Vale con que contenga el texto indicado:
+						
+							git log --author="Trabas"
+							
+						Puedes utilizar expresiones regulares para crear búsquedas mas complejas:
+						
+							git log --author="Trabas\|Belmonte"		--> Muestra los commits creados por Daniel Trabas o David Belmonte
+							
+						Ten en cuenta que le email se guarda también con el nombre por lo que este comando te permite la búsqueda por email
+						
+							git log --author="dtrabas@calculo-sa.es"
+							
+						Se puede combinar con el parámetro -i para que git ignore mayúsculas/minúsculas
+							
+		
+		--commiter	--> Sinónimo de --author
+		
+		--grep		--> Muestra únicamente los commits cuyo Mensaje coincida con el texto indicado entre comillas dobles. Funciona de manera similar
+						a --author, es decir, basta con que el mensaje contenga eol texto indicado, se pueden utilizar expresiones regulares, etc...
+						
+							git log --grep "MEA-254"
+							
+		--			--> Muestra los commits en los que hubo cambios en el fichero o ficheros cuyo nombre se indica a continuación. Se pueden utilizar comodines
+						para evitar tener que indicar el path completo del fichero.
+		
+						p.ej:	git log -- *tallerSiniestrosQuery.xml
+						
+		-S			--> Filtra por contenido del commit. 
+		
+						Por ejemplo, para buscar los commits que modificaron algún fichero *Query.xml añadiendo o quitando el texto "TRUNC" sin distinguir masyúsculas/minúsculas:
+		
+							 git log -S"trunc" -i -- *Query.xml
+							 
+		-G			--> Igual que -S pero indicando una expresión regular en lugar de una cadena de texto
+		
+		..			--> Permite filtrar commits en un rango de referencias (p.ej. commits, branchs, etc). 
+		
+						Por ejemplo, puedes filtrar los commits que hay entre una rama y otra así:
+						
+							git log develop..RELASE_3.1 --> NO CONSIGO QUE FUNCIONE...
+							
+		--no-merges	--> No tener en cuenta commits de mergeo
+		
+		--merges	--> Tener en cuenta únicamente commits de mergeo
 
-		--author 		--> Only show commits in which the author entry matches the specified string.
+* git shortlog
 
-		--committer 	--> Only show commits in which the committer entry matches the specified string.
-
-		--grep			--> Only show commits with a commit message containing the string
-
-		-S	<texto>		--> Only show commits adding or removing code matching the string		
-		
-		--all -- <path> --> Muestra los commits que han modificado el fichero indicado
-		
+	Es una versión especial de 'git log'. Agrupa cada commit por Autor y muestra la primera línea del mensaje del commit. Es una forma fácil de ver quien ha estado trabajando en que.
+	
+	Por defecto ordena la salida por nombre de Autor. Con el parámetro -n la salida se ordenará por Número de Commits.
 
 * git show --pretty="" --name-only  <ID_DEL_COMMIT>
 
@@ -320,14 +416,19 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2) XXXXX
   Deshaciendo cosas	
 =====================
 
-* Hace un discard de los cambios realizados en el <file> que todavía no están en el stage area 
-
-	git checkout -- <file>
-	
 * Sacar el <file> del stage area
 
 	git reset HEAD <file>
 
+* Hace un discard de los cambios realizados en el <file> que todavía no están en el stage area 
+
+	git checkout -- <file>
+	
+	Por ejemplo, cuando hacemos el merge de la rama RELEASE_X.Y sobre develop y nos da conflicto el pom.xml, para no tenerlo en cuenta tenemos que ejecutar los siguientes comandos:
+	
+		git reset HEAD pom.xml	
+	    git checkout -- pom.xml
+		
 * Deshacer merge:
 
 	git reset --hard HEAD
@@ -335,3 +436,4 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2) XXXXX
 * Deshacer el último commit (deja los ficheros commiteados como unstaged)
 
 	git reset HEAD~1
+
