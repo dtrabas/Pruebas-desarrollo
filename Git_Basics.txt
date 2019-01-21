@@ -183,6 +183,8 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 	
 		-NumCommits	--> Limita la salida al nº de comits indicado
 		
+		--all		--> Muestra todos los commits independientemente de la rama en la que estamos
+		
 		--after		--> Limita la salida a los commits anteriores o posteriores a la fecha indicada entre comillas dobles.
 		--before		OJO: la fecha debe ir en formato yyyy-mm-dd
 		
