@@ -385,6 +385,23 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 	Este otro muestra una referencia visual del branching:
 	
 		git log --oneline --decorate --graph --all
+		
+	Si no se indica un nombreRama, el comando muestra todas las ramas disponibles y marca con un * la rama actual.
+	
+	Otros parámetros útiles para el comando git branch son:
+	
+		-v	--> Muestra el último commit de cada rama
+		
+		--merged	-->	Muestra únicamente las ramas que han sido mergeadas.
+		
+						Si a continuación pones un nombreRama, el comando mostrará solo las ramas mergeadas en nombreRama.
+		
+		--no-merged	--> Sólo muestra las ramas pendientes de mergear. Una rama pendiente de mergear no puede ser eliminada mediante 'git branch -d', es 
+						necesario hacerlo mediante el comando 'git branch -D'.
+						
+						Si a continuación pones un nombreRama, el comando mostrará solo las ramas pendientes de mergear en nombreRama.
+	
+	
 	
 * git checkout <nombreRama>
 
@@ -408,9 +425,10 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 
 	Elimina la rama indicada
 	
-	Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error 'error: The branch 'hotfix2' is not fully merged' y necesitas ejecutar el comando así ''git branch -D hotfix2'
+	Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error 'error: The branch 'hotfix2' is not fully merged' y necesitas ejecutar el comando así 'git branch -D hotfix2'
 	
 	Ojo2: cuando borras la rama, ésta deja de aparecer en el SourceTree...
+
 	
 =====================
   Deshaciendo cosas	
