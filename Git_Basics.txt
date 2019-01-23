@@ -231,8 +231,6 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 		--			--> Muestra los commits en los que hubo cambios en el fichero o ficheros cuyo nombre se indica a continuación. Se pueden utilizar comodines
 						para evitar tener que indicar el path completo del fichero.
 		
-						p.ej:	git log -- *tallerSiniestrosQuery.xml
-						
 		-S			--> Filtra por contenido del commit. 
 		
 						Por ejemplo, para buscar los commits que modificaron algún fichero *Query.xml añadiendo o quitando el texto "TRUNC" sin distinguir masyúsculas/minúsculas:
@@ -250,6 +248,17 @@ RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 		--no-merges	--> No tener en cuenta commits de mergeo
 		
 		--merges	--> Tener en cuenta únicamente commits de mergeo
+		
+	Ejemplos:
+	
+		. Buscar los commits del usuario cuyo nombre contiene la palabra 'trabas' (Daniel Trabas, dtrabas, etc...) en los que se incluyó el texto 'observaciones' en el mensaje del commit. No se distinguen mayúsculas/minúsculas (parámetro -i):
+		
+			git log -i --author "trabas" --grep "observaciones" --all
+		
+		. Mostrar todos los commits en los que el usuario indicado haya modificado el fichero tallerSiniestrosQuery.xml: 
+		
+			git log --author "Belmonte" -- *tallerSiniestrosQuery.xml
+
 
 * git shortlog
 
