@@ -6,7 +6,7 @@ Notas Resumen Scrum blog Javier Garzás
 
 * Buenas prácticas como equipos multifuncionales, auto-organizados, equipos pequeños, el ciclo de vida iterativo-incremental, etc.,
 
-			- Un equipo multifuncional es aquel equipo que posee todas las competencias necesarias para lograr completar el trabajo, sin depender (o dependiendo mínimamente) de otros equipos, áreas, o roles fuera del mismo.
+	. Un equipo multifuncional es aquel equipo que posee todas las competencias necesarias para lograr completar el trabajo, sin depender (o dependiendo mínimamente) de otros equipos, áreas, o roles fuera del mismo.
 	
 	. Un equipo auto-organizado es un equipo dirigido y organizado por sus propios miembros, para alcanzar los objetivos especificados por la gerencia, dentro, obviamente, de las limitaciones de su entorno. 
 	
