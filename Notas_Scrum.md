@@ -2,11 +2,11 @@
 Notas Resumen Scrum blog Javier Garzás
 ======================================
 
-* Scrum (que no se escribe todo en mayúsculas, porque no es un acrónimo) es una “metodología” ágil para, importante, la gestión de proyectos. Más que una metodología (las metodologías ágiles no existen) se trata de un marco de trabajo (framework) o conjunto de buenas prácticas.
+* **Scrum** (que no se escribe todo en mayúsculas, porque no es un acrónimo) es una *“metodología”* ágil para, **importante**, la gestión de proyectos. Más que una metodología (las metodologías ágiles no existen) se trata de un marco de trabajo (framework) o conjunto de buenas prácticas.
 
 * Buenas prácticas como equipos multifuncionales, auto-organizados, equipos pequeños, el ciclo de vida iterativo-incremental, etc.,
 
-	. Un equipo multifuncional es aquel equipo que posee todas las competencias necesarias para lograr completar el trabajo, sin depender (o dependiendo mínimamente) de otros equipos, áreas, o roles fuera del mismo.
+			- Un equipo multifuncional es aquel equipo que posee todas las competencias necesarias para lograr completar el trabajo, sin depender (o dependiendo mínimamente) de otros equipos, áreas, o roles fuera del mismo.
 	
 	. Un equipo auto-organizado es un equipo dirigido y organizado por sus propios miembros, para alcanzar los objetivos especificados por la gerencia, dentro, obviamente, de las limitaciones de su entorno. 
 	
