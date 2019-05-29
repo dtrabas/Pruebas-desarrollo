@@ -101,7 +101,11 @@ Introducción
 			
 * `git add <file>`
 
-	Pasa el fichero indicado al area staged. Por tanto, si el fichero es nuevo, pasa a estar trackeado.
+	Pasa el fichero indicado al *staged area*. Por tanto, si el fichero es nuevo, pasa a estar trackeado.
+	
+* `git add -A`	
+
+	(o `--all`) Añade al *staged area* todos los ficheros modificados, ya estén *tracked* o *untracked*.
 
 ---
 
