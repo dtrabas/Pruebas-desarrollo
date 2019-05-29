@@ -51,7 +51,7 @@ Introducción
 	
 * `git status -s`
 
-	(ó `--short)
+	(ó `--short`)
 
 	Muestra el estado de nuestros ficheros en formato reducido (el nombre del fichero precedido de dos letras):
 	
@@ -105,19 +105,25 @@ Introducción
 
 ---
 
-* `git diff <parametros> <file>`
+* `git diff <file>`
 
-	Sin parámetros: Muestra los cambios del fichero *Modified* (no está aún *staged*) respecto del fichero en el area staged ó de su último *commit* si no está en dicho area
+	Sin parámetros: Muestra los cambios del fichero *Modified* (no está aún *staged*) respecto del fichero en el area *staged* ó de su último *commit* si no está en dicho area
 
-	`--staged`: (ó `--cached`) Muestra los cambios del fichero en el area *staged* respecto de su último *commit*. Si también hay cambios en el fichero *Modified*, estos no se mostrarán.
+* `git diff --staged`
+
+	(ó `--cached`) Muestra los cambios del fichero en el area *staged* respecto de su último *commit*. Si también hay cambios en el fichero *Modified*, estos no se mostrarán.
 	
 	>Ojo: si el fichero está en el área *staged*, `git diff` sin parámetros no mostrará ningún cambio!!!
 	
-	`git diff <ID_DE_COMMIT_A_COMPARAR> <file>` Muestra los cambios de los ficheros *Modified/Staged* respecto de ese *commit*. 
+* `git diff <ID_DE_COMMIT_A_COMPARAR> <file>` 
+
+	Muestra los cambios de los ficheros *Modified/Staged* respecto de ese *commit*. 
 	
 	>Ojo: para las diferencias del *commit* SI se tiene en cuenta el area *staged*!!!
 	
-	`git diff HEAD <file>` nos mostrará todos los cambios del fichero ya esté modificado o en el *stage area*.
+* `git diff HEAD <file>` 
+
+	Mostrará todos los cambios del fichero ya esté *modificado* o en el *stage area*.
 	
 ---
 		
