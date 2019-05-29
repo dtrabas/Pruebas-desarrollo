@@ -193,11 +193,11 @@ Introducción
 		
 			Muestra el número de inserciones y borrados de cada commit 
 			
-		    La cantidad de signos + y - a lado de cada nombre de archivo indica el número
+			La cantidad de signos + y - a lado de cada nombre de archivo indica el número
 			relativo de cambios a cada fichero alterados por el commit. Esto te da una idea 
 			de donde están los cambios del commit.
 						
-		    (ojo: modificar una línea se representa como 1 insertion y 1 deletion)
+			(ojo: modificar una línea se representa como 1 insertion y 1 deletion)
 						
 		-p 	
 		--patch
@@ -218,24 +218,26 @@ Introducción
 		--pretty=format:"<string>"	
 		
 			Permite mostrar cada commit como nos de la gana usando los mismos 
-		    placeholders que usamos en el comando 'printf' de C
+			placeholders que usamos en el comando 'printf' de C
 		
 			Por ejemplo, en el siguiente comando:
 										
 					git log --pretty=format:"%cn committed %h on %cd"
 											
-			Los placeholders se sustituyen de la siguiente forma:
+			los placeholders se sustituyen de la siguiente forma:
 										
-					%cn --> Autor del commit
-					%h	--> Hash del commit
-					%cd --> Fecha del commit
+					%cn	-->	Autor del commit
+					%h	-->	Hash del commit
+					%cd	-->	Fecha del commit
 											
 			La lista completa de placeholders se puede buscar en Internet.
 		    
 			Este comando es muy útil cuando necesitas usar la salida del comando git log como entrada 
 			para otro programa (pipe)
 										
-		--pretty=oneline --> muestra un commit por línea
+		--pretty=oneline
+		
+			Muestra un commit por línea
 										
 	
 	Parámetros utilizados para filtrar que commits se incluyen en la salida:
@@ -248,86 +250,111 @@ Introducción
 		
 			Muestra todos los commits independientemente de la rama en la que estamos
 		
-		--after
+		--after <yyyy-mm-dd>
+		--before <yyyy-mm-dd>
 		
 			Limita la salida a los commits anteriores o posteriores a la fecha indicada entre comillas dobles.
-			
-		--before <yyyy-mm-dd>
 		
 			OJO: la fecha debe ir en formato yyyy-mm-dd
 		
-						p.ej.: git log --after="2019-12-01"
-							   git log --before="yesterday"
+				p.ej.: 	git log --after="2019-12-01"
+						git log --before="yesterday"
+				   
+			Para buscar commits que creados en un periodo:
+			
+				   git log --after="2018-12-01" --before="2018-12-31"
+				   
+			Para buscar los commits de los últimos 3 días
+			
+					git log --after=3.days
 							   
-						Para buscar commits que creados en un periodo:
-						
-							   git log --after="2018-12-01" --before="2018-12-31"
-							   
-						Para buscar los commits de los últimos 3 días
-						
-								git log --after=3.days
-							   
-		--since		--> Son sinónimos de --after y --before respectivamente
+		--since		
 		--until
 		
-		--author	--> Muestra únicamente los commits creados por el autor indicado entre comillas dobles
+			Son sinónimos de --after y --before respectivamente
 		
-							git log --author="Daniel"
+		--author
+		
+			Muestra únicamente los commits creados por el autor indicado entre comillas dobles
+		
+					git log --author="Daniel"
 							
-						El nombre del autor no tiene por qué coincidir excatamente. Vale con que contenga el texto indicado:
+			El nombre del autor no tiene por qué coincidir excatamente. Vale con que contenga el texto indicado:
 						
-							git log --author="Trabas"
+					git log --author="Trabas"
 							
-						Puedes utilizar expresiones regulares para crear búsquedas mas complejas:
+			Puedes utilizar expresiones regulares para crear búsquedas mas complejas:
 						
-							git log --author="Trabas\|Belmonte"		--> Muestra los commits creados por Daniel Trabas o David Belmonte
+					git log --author="Trabas\|Belmonte"		
+					
+					--> Muestra los commits creados por Daniel Trabas o David Belmonte
 							
-						Ten en cuenta que le email se guarda también con el nombre por lo que este comando te permite la búsqueda por email
+			Ten en cuenta que le email se guarda también con el nombre por lo que este comando te permite la búsqueda por email
 						
-							git log --author="dtrabas@calculo-sa.es"
+					git log --author="dtrabas@calculo-sa.es"
 							
-						Se puede combinar con el parámetro -i para que git ignore mayúsculas/minúsculas
+			Se puede combinar con el parámetro -i para que git ignore mayúsculas/minúsculas
 							
 		
-		--commiter	--> Sinónimo de --author
+		--commiter	
 		
-		--grep		--> Muestra únicamente los commits cuyo Mensaje coincida con el texto indicado entre comillas dobles. Funciona de manera similar
-						a --author, es decir, basta con que el mensaje contenga eol texto indicado, se pueden utilizar expresiones regulares, etc...
+			Sinónimo de --author
+		
+		--grep
+
+			Muestra únicamente los commits cuyo Mensaje coincida con el texto indicado entre comillas dobles. 
+			Funciona de manera similar a --author, es decir, basta con que el mensaje contenga el texto indicado,
+			se pueden utilizar expresiones regulares, etc...
 						
-							git log --grep "MEA-254"
+					git log --grep "MEA-254"
 							
-		--			--> Muestra los commits en los que hubo cambios en el fichero o ficheros cuyo nombre se indica a continuación. Se pueden utilizar comodines
-						para evitar tener que indicar el path completo del fichero.
+		--			
 		
-		-S			--> Filtra por contenido del commit. 
+			Muestra los commits en los que hubo cambios en el fichero o ficheros cuyo nombre se indica a continuación. 
+			Se pueden utilizar comodines para evitar tener que indicar el path completo del fichero.
 		
-						Por ejemplo, para buscar los commits que modificaron algún fichero *Query.xml añadiendo o quitando el texto "TRUNC" sin distinguir masyúsculas/minúsculas:
+		-S	
 		
-							 git log -S"trunc" -i -- *Query.xml
+			Filtra por contenido del commit. 
+		
+			Por ejemplo, para buscar los commits que modificaron algún fichero *Query.xml añadiendo o quitando el texto 
+			"TRUNC" sin distinguir masyúsculas/minúsculas:
+		
+					 git log -S"trunc" -i -- *Query.xml
 							 
-		-G			--> Igual que -S pero indicando una expresión regular en lugar de una cadena de texto
+		-G	
 		
-		..			--> Permite filtrar commits en un rango de referencias (p.ej. commits, branchs, etc). 
+			Igual que -S pero indicando una expresión regular en lugar de una cadena de texto
 		
-						Por ejemplo, puedes filtrar los commits que hay entre una rama y otra así:
+		..	
+
+			Permite filtrar commits en un rango de referencias (p.ej. commits, branchs, etc). 
+		
+			Por ejemplo, puedes filtrar los commits que hay entre una rama y otra así:
 						
-							git log develop..RELASE_3.1 --> NO CONSIGO QUE FUNCIONE...
+					git log develop..RELASE_3.1 --> NO CONSIGO QUE FUNCIONE...
 							
-		--no-merges	--> No tener en cuenta commits de mergeo
+		--no-merges
+
+			No tener en cuenta commits de mergeo
 		
-		--merges	--> Tener en cuenta únicamente commits de mergeo
+		--merges
+		
+			Tener en cuenta únicamente commits de mergeo
 		
 	Ejemplos:
 	
-		. Buscar los commits del usuario cuyo nombre contiene la palabra 'trabas' (Daniel Trabas, dtrabas, etc...) en los que se incluyó el texto 'observaciones' en el mensaje del commit. No se distinguen mayúsculas/minúsculas (parámetro -i):
+		* Buscar los commits del usuario cuyo nombre contiene la palabra 'trabas' (Daniel Trabas, dtrabas, 
+		etc...) en los que se incluyó el texto 'observaciones' en el mensaje del commit. No se distinguen 
+		mayúsculas/minúsculas (parámetro -i):
 		
 			git log -i --author "trabas" --grep "observaciones" --all
 		
-		. Mostrar todos los commits en los que el usuario indicado haya modificado el fichero tallerSiniestrosQuery.xml: 
+		* Mostrar todos los commits en los que el usuario indicado haya modificado el fichero tallerSiniestrosQuery.xml: 
 		
 			git log --author "Belmonte" -- *tallerSiniestrosQuery.xml
 			
-		. Útil para las Auditorías: mostrar todos los commits de e-Tica_web que generaron versión durante el año 2018:
+		* Útil para las Auditorías: mostrar todos los commits de e-Tica_web que generaron versión durante el año 2018:
 		
 			git --git-dir=e-Tica_web/.git --no-pager log --no-merges --grep "1.4-RC-" --after="2018-01-01" --before="2018-12-31"
 
