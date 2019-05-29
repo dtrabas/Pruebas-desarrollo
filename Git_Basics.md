@@ -36,13 +36,13 @@ Introducción
 	
 	Muestra por consola los parámetros disponibles para el comando indicado.
 
-* git status
+* `git status`
 
 	Muestra el estado de nuestros ficheros
 	
-* git status -s
+* `git status -s`
 
-	(ó --short)
+	(ó `--short)
 
 	Muestra el estado de nuestros ficheros en formato reducido (el nombre del fichero precedido de dos letras):
 	
@@ -87,11 +87,11 @@ Introducción
 	
 	Por ejemplo, para omitir todos los archivos con extensión tmp: **.tmp
 			
-* git add <file>
+* `git add <file>`
 
-	Pasa el <file> indicado al area staged. Por tanto, si el fichero es nuevo, pasa a estar trackeado.
+	Pasa el file> indicado al area staged. Por tanto, si el fichero es nuevo, pasa a estar trackeado.
 
-* git diff <parametros> <file>
+* git diff <parametros> <file>``
 
 	Sin parámetros: Muestra los cambios del fichero Modified (no está aún staged) respecto del fichero en el area staged ó de su último commit si no está en dicho area
 
