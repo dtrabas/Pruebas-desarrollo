@@ -181,19 +181,28 @@ Introducción
 		
 	Parámetros utilizados para el formateo:
 	
-		--oneline	Condensa cada commit en una única línea
+		--oneline	
 		
-		--decorate	Muestra todas las referencias (ramas, tags, etc) que apuntan a cada commit
+			Condensa cada commit en una única línea
 		
-		--stat		Muestra el número de inserciones y borrados de cada commit 
-		            La cantidad de signos + y - a lado de cada nombre de archivo indica el número
-					relativo de cambios a cada fichero alterados por el commit. Esto te da una idea 
-					de donde están los cambios del commit.
+		--decorate	
+		
+			Muestra todas las referencias (ramas, tags, etc) que apuntan a cada commit
+		
+		--stat		
+			Muestra el número de inserciones y borrados de cada commit 
+		    La cantidad de signos + y - a lado de cada nombre de archivo indica el número
+			relativo de cambios a cada fichero alterados por el commit. Esto te da una idea 
+			de donde están los cambios del commit.
 						
-		            >(ojo: modificar una línea se representa como 1 insertion y 1 deletion)
+		    >(ojo: modificar una línea se representa como 1 insertion y 1 deletion)
 						
-		-p 			Muestra los cambios realizados a cada fichero del commit
+		-p 	
 		--patch
+		
+			Muestra los cambios realizados a cada fichero del commit
+			
+		
 		
 		--graph		Dibuja un gráfico ASCII representando la estructura de ramas de la historia del commit. 
 					Suele utilizarse junto a --oneline y --decorate para facilitar determinar visualmente 
