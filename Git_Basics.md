@@ -520,9 +520,11 @@ Un commit consiste en una estructura de objetos formada por:
 	
 	(Usamos como ejemplo un directorio conteniendo tres archivos sobre los que hacemos stage y commit)
 
-	1. Un Objeto principal del commit: contiene el nombre y email del autor, el mensaje empleado y un puntero a un objeto tree
+	1. Un Objeto principal del commit: contiene el nombre y email del autor, el mensaje empleado y un puntero 
+	a un objeto tree.
 
-	2. Un objeto tree: contiene el contenido del directorio y por cada archivo un puntero al objeto blob correspondiente
+	2. Un objeto tree: contiene el contenido del directorio y por cada archivo un puntero al objeto blob 
+	correspondiente.
 		
 	3. Tres objetos blob (uno por archivo del directorio) con el contenido del archivo.
 		
@@ -544,32 +546,40 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 	
 		git log --oneline --decorate --graph --all
 		
-	Si no se indica un nombreRama, el comando muestra todas las ramas disponibles y marca con un * la rama actual.
+	Si no se indica un *nombreRama*, el comando muestra todas las ramas disponibles y marca con un * la rama actual.
 	
 	Otros parámetros útiles para el comando git branch son:
 	
-		-v	--> Muestra el último commit de cada rama
+		-v	
 		
-		--merged	-->	Muestra únicamente las ramas que han sido mergeadas.
+			Muestra el último commit de cada rama
 		
-						Si a continuación pones un nombreRama, el comando mostrará solo las ramas mergeadas en nombreRama.
+		--merged
 		
-		--no-merged	--> Sólo muestra las ramas pendientes de mergear. Una rama pendiente de mergear no puede ser eliminada mediante 'git branch -d', es 
-						necesario hacerlo mediante el comando 'git branch -D'.
+			Muestra únicamente las ramas que han sido mergeadas.
+		
+			Si a continuación pones un nombreRama, el comando mostrará solo las ramas mergeadas en nombreRama.
+		
+		--no-merged	
+		
+			Sólo muestra las ramas pendientes de mergear. Una rama pendiente de mergear no puede ser eliminada mediante
+			'git branch -d', es necesario hacerlo mediante el comando 'git branch -D'.
 						
-						Si a continuación pones un nombreRama, el comando mostrará solo las ramas pendientes de mergear en nombreRama.
+			Si a continuación pones un nombreRama, el comando mostrará solo las ramas pendientes de mergear en *nombreRama*.
 	
+---
 	
-	
-* git checkout <nombreRama>
+* `git checkout <nombreRama>`
 
 	Cambia la rama actual a la rama indicada
 	
-	Para crear automáticamente a la nueva rama, añade el parámetro -b
+	Para crear automáticamente la nueva rama, añade el parámetro -b
 	
 		git checkout -b <nombreRama>
 		
-* git merge <nombreRama>
+---
+		
+* `git merge <nombreRama>`
 
 	Mergea los cambios de la rama indicada sobre la rama actual.
 	
@@ -579,29 +589,34 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 	
 		git merge -m 'Mensaje del merge' <nombreRama>
 		
+---
 		
-* git branch
+* 'git branch'
 
 	Sin parámetros, lista todas las ramas LOCALES
 	
 	Con parámetros:
 	
-		-r 	-->	Lista sólo ramas REMOTAS
+		-r 	
 		
-		-a	--> Lista TODAS las ramas
+			Lista sólo ramas REMOTAS
+		
+		-a	
+		
+			Lista TODAS las ramas
 	
-* git branch -d <nombreRama>
+* `git branch -d <nombreRama>`
 
 	Elimina la rama indicada
 	
-	Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error 'error: The branch 'hotfix2' is not fully merged' y necesitas ejecutar el comando así 'git branch -D hotfix2' --> (-D = Force delete)
+	> Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error 'error: The branch 'hotfix2' is not fully merged' y necesitas ejecutar el comando así `git branch -D hotfix2` --> (`-D = Force delete`)
 	
-	Ojo2: cuando borras la rama, ésta deja de aparecer en el SourceTree...
+	> Ojo2: cuando borras la rama, ésta deja de aparecer en el SourceTree...
 
-	
-=====================
-  Deshaciendo cosas	
-=====================
+---	
+
+Deshaciendo cosas	
+-----------------
 
 * Sacar el <file> del stage area
 
@@ -624,3 +639,4 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 
 	git reset HEAD~1
 
+---
