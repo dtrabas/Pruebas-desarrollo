@@ -562,10 +562,11 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 		
 		--no-merged	
 		
-			Sólo muestra las ramas pendientes de mergear. Una rama pendiente de mergear no puede ser eliminada mediante
-			'git branch -d', es necesario hacerlo mediante el comando 'git branch -D'.
+			Sólo muestra las ramas pendientes de mergear. Una rama pendiente de mergear no puede ser eliminada 
+			mediante 'git branch -d', es necesario hacerlo mediante el comando 'git branch -D'.
 						
-			Si a continuación pones un nombreRama, el comando mostrará solo las ramas pendientes de mergear en *nombreRama*.
+			Si a continuación pones un nombreRama, el comando mostrará solo las ramas pendientes de mergear 
+			en *nombreRama*.
 	
 ---
 	
