@@ -99,7 +99,7 @@ Introducción
 
 ***
 
-* `git diff <parametros> <file>`
+`git diff <parametros> <file>`
 
 	Sin parámetros: Muestra los cambios del fichero *Modified* (no está aún *staged*) respecto del fichero en el area staged ó de su último *commit* si no está en dicho area
 
