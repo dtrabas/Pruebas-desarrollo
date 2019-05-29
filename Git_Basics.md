@@ -22,23 +22,28 @@ Introducción
 
 	Situados en la carpeta que queremos que controle git, este comando creará la carpeta oculta `.git` que contendrá el esqueleto del repositorio git para esa carpeta. En este punto ningún fichero de la carpeta está trackeado todavía.
 	
+	
 * `git clone <url>`
 
 	Clona un repositorio existente en la carpeta en la que estamos situados. La primera vez que clonas un repositorio, todos los ficheros están en estado *tracked* y *sin modificar*.
 	
+	
 * `git help <nombreComandoGit>`
 
 	Abre en el navegador por defecto la `man page` del comando indicado
+	
 	
 * `git <nombreComandoGit> -h`
 
 	(ó `--help`)
 	
 	Muestra por consola los parámetros disponibles para el comando indicado.
+	
 
 * `git status`
 
 	Muestra el estado de nuestros ficheros
+	
 	
 * `git status -s`
 
@@ -86,45 +91,48 @@ Introducción
 		**.tipo
 	
 	Por ejemplo, para omitir todos los archivos con extensión tmp: **.tmp
+	
 			
 * `git add <file>`
 
-	Pasa el file> indicado al area staged. Por tanto, si el fichero es nuevo, pasa a estar trackeado.
-
-* git diff <parametros> <file>``
-
-	Sin parámetros: Muestra los cambios del fichero Modified (no está aún staged) respecto del fichero en el area staged ó de su último commit si no está en dicho area
-
-	--staged: (ó --cached) Muestra los cambios del fichero en el area staged respecto de su último commit. Si también hay cambios en el fichero Modified, estos no se mostrarán.
+	Pasa el fichero indicado al area staged. Por tanto, si el fichero es nuevo, pasa a estar trackeado.
 	
-	Ojo: si el fichero está en el area staged, git diff sin parámetros no mostrará ningún cambio!!!
-	
-* git diff <ID_DE_COMMIT_A_COMPARAR> <file>
 
-	Muestra los cambios de los ficheros Modified/Staged respecto de ese commit. 
+* `git diff <parametros> <file>`
+
+	Sin parámetros: Muestra los cambios del fichero *Modified* (no está aún *staged*) respecto del fichero en el area staged ó de su último *commit* si no está en dicho area
+
+	`--staged`: (ó `--cached`) Muestra los cambios del fichero en el area *staged* respecto de su último *commit*. Si también hay cambios en el fichero *Modified*, estos no se mostrarán.
 	
-	Ojo: para las diferencias del commit SI se tiene en cuenta el area staged!!!
+	Ojo: si el fichero está en el área *staged*, `git diff` sin parámetros no mostrará ningún cambio!!!
 	
-	Nota: "git diff HEAD <file>" nos mostrará todos los cambios del fichero ya esté modificado o en el stage area.
+	
+* `git diff <ID_DE_COMMIT_A_COMPARAR> <file>`
+
+	Muestra los cambios de los ficheros *Modified/Staged* respecto de ese *commit*. 
+	
+	Ojo: para las diferencias del *commit* SI se tiene en cuenta el area *staged*!!!
+	
+	Nota: `git diff HEAD <file>` nos mostrará todos los cambios del fichero ya esté modificado o en el *stage area*.
 	
 		
-* git commit <file>
+* `git commit <file>`
 
 	Hace commit del <file> del staged area. Se abre el editor por defecto para escribir la descripción del commit
 	
-  . git commit -a
+	`git commit -a`
   
-	(ó --all) Pasa todos los ficheros en seguimiento (tracked) al staged area (e.d. ejecuta git add ./) y después realiza el commit.
+		(ó `--all`) Pasa todos los ficheros en seguimiento (tracked) al staged area (e.d. ejecuta git add ./) y después realiza el commit.
 	
-	Ojo: sólo tiene en cuenta los ficheros tracked. Si acabas de crear un fichero nuevo, este estará untracked y no será tenido en cuenta en el commit. Así que primero tendrás que ejecutar 'git add .' para para pasar a tracked los ficheros nuevos.
+		Ojo: sólo tiene en cuenta los ficheros tracked. Si acabas de crear un fichero nuevo, este estará untracked y no será tenido en cuenta en el commit. Así que primero tendrás que ejecutar 'git add .' para para pasar a tracked los ficheros nuevos.
 	
-  . git commit -m 'descripción del commit' <file>
+	`git commit -m 'descripción del commit' <file>`
   
-	(ó --message) Añade el fichero al stage area y ha commit del mismo. También permite indicar la descripción del commit en la misma línea de comando. 
+		(ó `--message`) Añade el fichero al stage area y ha commit del mismo. También permite indicar la descripción del commit en la misma línea de comando. 
 	
-  . git commit --amend
+	`git commit --amend`
 
-	Nos permite modificar el comentario del último commit y/o añadir el contenido del stage area a dicho commit. Este proceso reemplaza completamente el commit original de tal forma que es como si nunca se hubiera realizado.
+		Nos permite modificar el comentario del último commit y/o añadir el contenido del stage area a dicho commit. Este proceso reemplaza completamente el commit original de tal forma que es como si nunca se hubiera realizado.
 	
 	Ejecutado sin indicar el nombre del fichero que queremos añadir al commit, añadirá todos los ficheros del staged area.
 	
