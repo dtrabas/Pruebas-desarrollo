@@ -38,17 +38,17 @@ Introducción
 
 	Situados en la carpeta que queremos que controle git, este comando creará la carpeta oculta `.git` que contendrá el esqueleto del repositorio git para esa carpeta. En este punto ningún fichero de la carpeta está trackeado todavía.
 	
-* git clone <url>
+* `git clone <url>`
 
-	Clona un repositorio existente en la carpeta en la que estamos situados. La primera vez que clonas un repositorio, todos los ficheros están tracked y sin modificar.
+	Clona un repositorio existente en la carpeta en la que estamos situados. La primera vez que clonas un repositorio, todos los ficheros están en estado *tracked* y *sin modificar*.
 	
-* git help <nombreComandoGit>
+* `git help <nombreComandoGit>`
 
-	Abre en el navegador por defecto la 'man page' del comando indicado
+	Abre en el navegador por defecto la `man page` del comando indicado
 	
-* git <nombreComandoGit> -h
+* `git <nombreComandoGit> -h`
 
-	(ó --help)
+	(ó `--help`)
 	
 	Muestra por consola los parámetros disponibles para el comando indicado.
 
