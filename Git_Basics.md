@@ -441,6 +441,7 @@ Remotes
 		
 		git push -u origin bug#IE-294
 	
+---
 
 Tags
 ----
@@ -455,21 +456,27 @@ Tags
 	
 	*Lightweight*: similar a una rama que no cambia. Básicamente es un puntero a un commit específico.
 		
-		`git tag <nombre_tag>`
+		git tag <nombre_tag>
 		
 	*Annotated*: se guardan como full objects en la bbdd de Git. Tienen checksum, mensaje de tagging, email y fecha.
 		
-		`git tag -a <nombre_tag> -m "mensaje de tagging"`
-			
-* git show <nombre_tag>
+		git tag -a <nombre_tag> -m "mensaje de tagging"
+
+---
+		
+* `git show <nombre_tag>`
 
 	Muestra la información asociada al tag.
+
+---
 	
-* git tag -l "patrón"
+* `git tag -l "patrón"`
 
 	Muestra los tags que cumplen el patrón indicado
+
+---
 	
-* git tag -d <nombreTag>
+* `git tag -d <nombreTag>`
 
 	Elimina el tag especificado. No se elimina del remoto. 
 	
@@ -481,23 +488,33 @@ Tags
 		
 		git push origin --delete <nombreTag>
 
-* git push origin <nombre_tag>
+---
+
+* `git push origin <nombre_tag>`
 
 	Transfiere el tag al repositorio remoto
 	
-	OJO: 'git push' no transfiere por defecto tags al remoto. Hay que hacerlo explicitamente
+	> OJO: 'git push' no transfiere por defecto tags al remoto.
 	
-* git push origin --tags
+---
+	
+* `git push origin --tags`
 
 	Transfiere al repositorio todas las tags que no tenga ya
+
+---
 	
-* git checkout <nombre_tag>
+* `git checkout <nombre_tag>`
 
-	Permite ver las versiones de los ficheros a los que apunta este tag. Pone el repositorio en estado 'detached HEAD'. En este estado hay que tener cuidado con los commits y el branching ya que funciona diferente. Mejor revisar la documentación...
+	Permite ver las versiones de los ficheros a los que apunta este tag. Pone el repositorio en estado '*detached HEAD*'. En este estado hay que tener cuidado con los commits y el branching ya que funciona diferente. Mejor revisar la documentación...
 
-=============	
-  Branching
-=============
+---
+
+
+Branching
+---------
+
+---
 
 	. Un commit consiste en una estructura de objetos formada por:
 	
