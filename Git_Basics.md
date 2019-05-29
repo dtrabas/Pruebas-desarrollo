@@ -22,23 +22,25 @@ Introducción
 
 	Situados en la carpeta que queremos que controle git, este comando creará la carpeta oculta `.git` que contendrá el esqueleto del repositorio git para esa carpeta. En este punto ningún fichero de la carpeta está trackeado todavía.
 
+---
 	
 * `git clone <url>`
 
 	Clona un repositorio existente en la carpeta en la que estamos situados. La primera vez que clonas un repositorio, todos los ficheros están en estado *tracked* y *sin modificar*.
-	
+
+---	
 	
 * `git help <nombreComandoGit>`
 
 	Abre en el navegador por defecto la `man page` del comando indicado
 	
-	
+---
 * `git <nombreComandoGit> -h`
 
 	(ó `--help`)
 	
 	Muestra por consola los parámetros disponibles para el comando indicado.
-	
+---
 
 * `git status`
 
@@ -97,7 +99,7 @@ Introducción
 
 	Pasa el fichero indicado al area staged. Por tanto, si el fichero es nuevo, pasa a estar trackeado.
 
-***
+---
 
 `git diff <parametros> <file>`
 
