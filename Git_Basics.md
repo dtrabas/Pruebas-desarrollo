@@ -133,22 +133,31 @@ Introducción
 		
 * `git commit <file>`
 
-	Hace commit del <file> del staged area. Se abre el editor por defecto para escribir la descripción del commit. Ejecutado sin indicar el nombre del fichero que queremos añadir al commit, añadirá todos los ficheros del staged area.
+	Hace commit del fichero indicado del *staged area*. Se abre el editor por defecto para escribir la descripción del commit. Ejecutado sin indicar el nombre del fichero que queremos añadir al *commit*, añadirá todos los ficheros del *staged area*.
 	
-	`git commit -a` (ó `--all`) Pasa todos los ficheros en seguimiento (tracked) al staged area (e.d. ejecuta git add ./) y después realiza el commit.
+* `git commit -a` (ó `--all`) 
+
+	Pasa todos los ficheros en seguimiento (tracked) al staged area (e.d. ejecuta git add ./) y después realiza el commit.
 	
 	>Ojo: sólo tiene en cuenta los ficheros tracked. Si acabas de crear un fichero nuevo, este estará untracked y no será tenido en cuenta en el commit. Así que primero tendrás que ejecutar 'git add .' para para pasar a tracked los ficheros nuevos.
 	
-	`git commit -m 'descripción del commit' <file>` (ó `--message`) Añade el fichero al stage area y ha commit del mismo. También permite indicar la descripción del commit en la misma línea de comando. 
-	
-	`git commit --amend` Nos permite modificar el comentario del último commit y/o añadir el contenido del stage area a dicho commit. Este proceso reemplaza completamente el commit original de tal forma que es como si nunca se hubiera realizado.
-	
+* `git commit -m 'descripción del commit' <file>` 
 
-* git rm <file>
-
-	Borra el <file> (rm <file>) y mueve el cambio al stage area (git add <file>)
+	(ó `--message`) Añade el fichero al stage area y ha commit del mismo. También permite indicar la descripción del commit en la misma línea de comando. 
 	
-* git mv <file1> <file2>
+* `git commit --amend` 
+
+	Nos permite modificar el comentario del último commit y/o añadir el contenido del stage area a dicho commit. Este proceso reemplaza completamente el commit original de tal forma que es como si nunca se hubiera realizado.
+	
+---	
+
+* `git rm <file>`
+
+	Borra el fichero indicado (`rm <file>`) y mueve el cambio al *stage area* (`git add <file>`)
+	
+---	
+	
+* `git mv <file1> <file2>`
 
 	Renombra file1 a file2. 
 	
@@ -157,39 +166,45 @@ Introducción
 		mv file1 file2
 		git rm file1
 		git add file2
-	
-* git log
 
-	Muestra los commits realizados sobre el repositorio en orden cronológico inverso, es decir, el commit mas reciente se muestra el primero.
+---
+		
+* `git log`
+
+	Muestra los commits realizados sobre el repositorio en orden cronológico inverso, es decir, el *commit* mas reciente se muestra el primero.
 	
 	Las características avanzadas de este comando pueden dividirse en dos categorías: 
 	
-		1) Formatear como se muestra cada commit
+		1) Formatear como se muestra cada *commit*
 		
-		2) Filtrar que commits se incluyen en la salida
+		2) Filtrar qué commits se incluyen en la salida
 		
 	Parámetros utilizados para el formateo:
 	
-		--oneline	-->	Condensa cada commit en una única línea
+		--oneline	Condensa cada commit en una única línea
 		
-		--decorate	--> Muestra todas las referencias (ramas, tags, etc) que apuntan a cada commit
+		--decorate	Muestra todas las referencias (ramas, tags, etc) que apuntan a cada commit
 		
-		--stat		--> Muestra el número de inserciones y borrados de cada commit 
-		                La cantidad de signos + y - a lado de cada nombre de archivo indica el número relativo de cambios a cada fichero alterados por el commit. Esto te da una idea de donde están los cambios del commit.
+		--stat		Muestra el número de inserciones y borrados de cada commit 
+		            La cantidad de signos + y - a lado de cada nombre de archivo indica el número
+					relativo de cambios a cada fichero alterados por el commit. Esto te da una idea 
+					de donde están los cambios del commit.
 						
-		                (ojo: modificar una línea se representa como 1 insertion y 1 deletion)
+		            >(ojo: modificar una línea se representa como 1 insertion y 1 deletion)
 						
-		-p 			--> Muestra los cambios realizados a cada fichero del commit
+		-p 			Muestra los cambios realizados a cada fichero del commit
 		--patch
 		
-		--graph		--> Dibuja un gráfico ASCII representando la estructura de ramas de la historia del commit. 
-						Suele utilizarse junto a --oneline y --decorate para facilitar determinar visualmente que commit pertenece a que rama.
+		--graph		Dibuja un gráfico ASCII representando la estructura de ramas de la historia del commit. 
+					Suele utilizarse junto a --oneline y --decorate para facilitar determinar visualmente 
+					que commit pertenece a que rama.
 						
-							git log --graph --oneline --decorate
+						git log --graph --oneline --decorate
 							
-						El asterisco muestra sobre que rama se hizo el commit.
+					El asterisco muestra sobre que rama se hizo el commit.
 						
-		--pretty=format:"<string>"	-->	Permite mostrar cada commit como nos de la gana usando los mismos placeholders que usamos en el comando 'printf' de C
+		--pretty=format:"<string>"	Permite mostrar cada commit como nos de la gana usando los mismos 
+		                            placeholders que usamos en el comando 'printf' de C
 		
 										Por ejemplo, en el siguiente comando:
 										
