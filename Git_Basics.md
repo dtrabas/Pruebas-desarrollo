@@ -407,23 +407,29 @@ Remotes
 
 ---
 	
-* git remote rename <nombre_repo> <nombre_nuevo>
+* git remote rename <nombre_repo> <nombre_nuevo>``
 
 	Cambia el nombre del repositorio remoto
 	
-* git fetch <remote>
+---
+
+* `git fetch <remote>`
 
 	Obtiene información de las ramas del repositorio <remote>
 	
-	El repositorio por defecto siempre es 'origin'
+	El repositorio por defecto siempre es *origin*
 	
 	Descarga la información nueva de estado que no tenemos en nuestro repositorio local (sólo estado, no descarga ficheros). Debemos ejecutarlo siempre antes de git status para estar seguros que estamos comparando el estado de nuestro repositorio local con el del remoto.
 	
-* git pull
-
-	Hace un 'git fetch' seguido de un 'git merge' de la rama actual con la del respositorio remoto
+---	
 	
-* git push --set-upstream <remote> <branch>
+* `git pull`
+
+	Hace un `git fetch` seguido de un `git merge` de la rama actual con la del respositorio remoto
+
+---
+	
+* `git push --set-upstream <remote> <branch>`
 
 	Sube la rama indicada al repositorio remoto. Por ejemplo:
 	
@@ -433,7 +439,7 @@ Remotes
 		
 		git push -u origin bug#IE-294
 	
-=============
+
     Tags
 =============	
 	
