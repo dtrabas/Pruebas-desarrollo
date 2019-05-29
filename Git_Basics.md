@@ -444,18 +444,20 @@ Remotes
 
 Tags
 ----
+
+---
 	
-* git tag [nombreNuevoTag]
+* `git tag [nombreNuevoTag]`
 
 	Muestra en orden alfabético los tags definidos ó crea un nuevo tag con el nombre indicado.
 	
 	Existen dos tipos de tags:
 	
-		. Lightweight: similar a una rama que no cambia. Básicamente es un puntero a un commit específico.
+		* *Lightweight*: similar a una rama que no cambia. Básicamente es un puntero a un commit específico.
 		
 			git tag <nombre_tag>
 		
-		. Annotated: se guardan como full objects en la bbdd de Git. Tienen checksum, mensaje de tagging, email y fecha.
+		* *Annotated*: se guardan como full objects en la bbdd de Git. Tienen checksum, mensaje de tagging, email y fecha.
 		
 			git tag -a <nombre_tag> -m "mensaje de tagging"
 			
