@@ -279,7 +279,8 @@ Introducción
 		
 					git log --author="Daniel"
 							
-			El nombre del autor no tiene por qué coincidir excatamente. Vale con que contenga el texto indicado:
+			El nombre del autor no tiene por qué coincidir excatamente. Vale con que contenga el
+			texto indicado:
 						
 					git log --author="Trabas"
 							
@@ -289,7 +290,8 @@ Introducción
 					
 					--> Muestra los commits creados por Daniel Trabas o David Belmonte
 							
-			Ten en cuenta que le email se guarda también con el nombre por lo que este comando te permite la búsqueda por email
+			Ten en cuenta que le email se guarda también con el nombre por lo que este comando te 
+			permite la búsqueda por email
 						
 					git log --author="dtrabas@calculo-sa.es"
 							
@@ -302,23 +304,24 @@ Introducción
 		
 		--grep
 
-			Muestra únicamente los commits cuyo Mensaje coincida con el texto indicado entre comillas dobles. 
-			Funciona de manera similar a --author, es decir, basta con que el mensaje contenga el texto indicado,
-			se pueden utilizar expresiones regulares, etc...
+			Muestra únicamente los commits cuyo Mensaje coincida con el texto indicado entre 
+			comillas dobles. Funciona de manera similar a --author, es decir, basta con que 
+			el mensaje contenga el texto indicado, se pueden utilizar expresiones regulares, etc...
 						
 					git log --grep "MEA-254"
 							
 		--			
 		
-			Muestra los commits en los que hubo cambios en el fichero o ficheros cuyo nombre se indica a continuación. 
-			Se pueden utilizar comodines para evitar tener que indicar el path completo del fichero.
+			Muestra los commits en los que hubo cambios en el fichero o ficheros cuyo nombre se 
+			indica a continuación. 			Se pueden utilizar comodines para evitar tener que indicar 
+			el path completo del fichero.
 		
 		-S	
 		
 			Filtra por contenido del commit. 
 		
-			Por ejemplo, para buscar los commits que modificaron algún fichero *Query.xml añadiendo o quitando el texto 
-			"TRUNC" sin distinguir masyúsculas/minúsculas:
+			Por ejemplo, para buscar los commits que modificaron algún fichero *Query.xml añadiendo o 
+			quitando el texto "TRUNC" sin distinguir masyúsculas/minúsculas:
 		
 					 git log -S"trunc" -i -- *Query.xml
 							 
@@ -350,13 +353,16 @@ Introducción
 		
 			git log -i --author "trabas" --grep "observaciones" --all
 		
-		* Mostrar todos los commits en los que el usuario indicado haya modificado el fichero tallerSiniestrosQuery.xml: 
+		* Mostrar todos los commits en los que el usuario indicado haya modificado el fichero 
+		tallerSiniestrosQuery.xml: 
 		
 			git log --author "Belmonte" -- *tallerSiniestrosQuery.xml
 			
-		* Útil para las Auditorías: mostrar todos los commits de e-Tica_web que generaron versión durante el año 2018:
+		* Útil para las Auditorías: mostrar todos los commits de e-Tica_web que generaron versión durante el 
+		año 2018:
 		
-			git --git-dir=e-Tica_web/.git --no-pager log --no-merges --grep "1.4-RC-" --after="2018-01-01" --before="2018-12-31"
+			git --git-dir=e-Tica_web/.git --no-pager log --no-merges --grep "1.4-RC-" 
+			    --after="2018-01-01" --before="2018-12-31"
 
 
 * git shortlog
