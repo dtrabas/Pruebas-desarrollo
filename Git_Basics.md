@@ -1,10 +1,10 @@
-==========================================================
+
 RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
 ==========================================================
 
-================================================
+
 Parámetros que puedes utilizar ANTES del comando
-================================================
+------------------------------------------------
 
 	git --git-dir=e-Tica_web/.git --no-pager <...comando...>
 	
@@ -12,9 +12,9 @@ Parámetros que puedes utilizar ANTES del comando
 		
 		--no-pager	-->	No paginar la salida (comando 'less' en GitBash)
 
-==============
- Introducción
-==============
+
+Introducción
+-------------
 
 * Los ficheros en Git pueden estar en dos estados: tracked o untracked
 
@@ -32,7 +32,7 @@ Parámetros que puedes utilizar ANTES del comando
 
 	Area que contiene los ficheros que serán commiteados en el próximo 'git commit'
 	
-* git init
+* `git init`
 
 	Situados en la carpeta que queremos que controle git, este comando creará la carpeta oculta '.git' que contendrá el esqueleto del repositorio git para esa carpeta. En este punto ningún fichero de la carpeta está trackeado todavía.
 	
@@ -321,9 +321,15 @@ Parámetros que puedes utilizar ANTES del comando
 
 	Hace un 'git fetch' seguido de un 'git merge' de la rama actual con la del respositorio remoto
 	
-* git push <remote> <branch>
+* git push --set-upstream <remote> <branch>
 
-	Sube la rama indicada al repositorio remoto.
+	Sube la rama indicada al repositorio remoto. Por ejemplo:
+	
+		git push --set-upstream origin bug#IE-294
+		
+		ó
+		
+		git push -u origin bug#IE-294
 	
 =============
     Tags
