@@ -313,7 +313,7 @@ Introducción
 		--			
 		
 			Muestra los commits en los que hubo cambios en el fichero o ficheros cuyo nombre se 
-			indica a continuación. 			Se pueden utilizar comodines para evitar tener que indicar 
+			indica a continuación. Se pueden utilizar comodines para evitar tener que indicar 
 			el path completo del fichero.
 		
 		-S	
@@ -323,7 +323,7 @@ Introducción
 			Por ejemplo, para buscar los commits que modificaron algún fichero *Query.xml añadiendo o 
 			quitando el texto "TRUNC" sin distinguir masyúsculas/minúsculas:
 		
-					 git log -S"trunc" -i -- *Query.xml
+					git log -S"trunc" -i -- *Query.xml
 							 
 		-G	
 		
@@ -364,37 +364,48 @@ Introducción
 			git --git-dir=e-Tica_web/.git --no-pager log --no-merges --grep "1.4-RC-" 
 			    --after="2018-01-01" --before="2018-12-31"
 
+---
 
-* git shortlog
+* `git shortlog`
 
-	Es una versión especial de 'git log'. Agrupa cada commit por Autor y muestra la primera línea del mensaje del commit. Es una forma fácil de ver quien ha estado trabajando en que.
+	Es una versión especial de `git log`. Agrupa cada commit por Autor y muestra la primera línea del mensaje del commit. Es una forma fácil de ver quien ha estado trabajando en que.
 	
-	Por defecto ordena la salida por nombre de Autor. Con el parámetro -n la salida se ordenará por Número de Commits.
+	Por defecto ordena la salida por nombre de Autor. Con el parámetro `-n` la salida se ordenará por Número de Commits.
 
-* git show --pretty="" --name-only  <ID_DEL_COMMIT>
+---
+
+* `git show --pretty="" --name-only <ID_DEL_COMMIT>`
 
 	Muestra la lista de los ficheros que fueron modificados en el commit indicado
 	
+---
 
-=============
-   Remotes
-=============	
+Remotes
+-------
 	
-* git remote add origin <url_repositorio_remoto>
+* `git remote add origin <url_repositorio_remoto>`
 
 	Añade el repositorio remoto indicado y le asigna el nombre origin
 	
-* git remote -v
+---
+	
+* `git remote -v`
 
 	Muestra información de los respositorios remotos configurados para el proyecto actual
+
+---
 	
-* git remote show <origin>
+* `git remote show <origin>`
 
 	Muestra información sobre el repositorio remoto <origin>
 	
-* git remote remove <nombre_repo>
+---
+	
+* `git remote remove <nombre_repo>`
 
 	Elimina el repositorio 
+
+---
 	
 * git remote rename <nombre_repo> <nombre_nuevo>
 
