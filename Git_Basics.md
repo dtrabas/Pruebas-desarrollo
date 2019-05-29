@@ -96,7 +96,8 @@ Introducción
 * `git add <file>`
 
 	Pasa el fichero indicado al area staged. Por tanto, si el fichero es nuevo, pasa a estar trackeado.
-	
+
+	***
 
 * `git diff <parametros> <file>`
 
@@ -112,6 +113,7 @@ Introducción
 	
 	`git diff HEAD <file>` nos mostrará todos los cambios del fichero ya esté modificado o en el *stage area*.
 	
+	---
 		
 * `git commit <file>`
 
