@@ -189,57 +189,72 @@ Introducción
 		
 			Muestra todas las referencias (ramas, tags, etc) que apuntan a cada commit
 		
-		--stat		
+		--stat	
+		
 			Muestra el número de inserciones y borrados de cada commit 
+			
 		    La cantidad de signos + y - a lado de cada nombre de archivo indica el número
 			relativo de cambios a cada fichero alterados por el commit. Esto te da una idea 
 			de donde están los cambios del commit.
 						
-		    >(ojo: modificar una línea se representa como 1 insertion y 1 deletion)
+		    (ojo: modificar una línea se representa como 1 insertion y 1 deletion)
 						
 		-p 	
 		--patch
 		
 			Muestra los cambios realizados a cada fichero del commit
+		
+		--graph		
+		
+			Dibuja un gráfico ASCII representando la estructura de ramas de la historia del commit. 
 			
-		
-		
-		--graph		Dibuja un gráfico ASCII representando la estructura de ramas de la historia del commit. 
-					Suele utilizarse junto a --oneline y --decorate para facilitar determinar visualmente 
-					que commit pertenece a que rama.
+			Suele utilizarse junto a `--oneline` y `--decorate` para facilitar determinar visualmente 
+			que commit pertenece a que rama.
 						
-						git log --graph --oneline --decorate
+					git log --graph --oneline --decorate
 							
-					El asterisco muestra sobre que rama se hizo el commit.
+			El asterisco muestra sobre que rama se hizo el commit.
 						
-		--pretty=format:"<string>"	Permite mostrar cada commit como nos de la gana usando los mismos 
-		                            placeholders que usamos en el comando 'printf' de C
+		--pretty=format:"<string>"	
 		
-										Por ejemplo, en el siguiente comando:
-										
-											git log --pretty=format:"%cn committed %h on %cd"
-											
-										Los placeholders se sustituyen de la siguiente forma:
-										
-											%cn --> Autor del commit
-											%h	--> Hash del commit
-											%cd --> Fecha del commit
-											
-										La lista completa de placeholders se puede buscar en Internet.
+			Permite mostrar cada commit como nos de la gana usando los mismos 
+		    placeholders que usamos en el comando 'printf' de C
 		
-										Este comando es muy útil cuando necesitas usar la salida del comando git log como entrada para otro programa (pipe)
+			Por ejemplo, en el siguiente comando:
+										
+					git log --pretty=format:"%cn committed %h on %cd"
+											
+			Los placeholders se sustituyen de la siguiente forma:
+										
+					%cn --> Autor del commit
+					%h	--> Hash del commit
+					%cd --> Fecha del commit
+											
+			La lista completa de placeholders se puede buscar en Internet.
+		    
+			Este comando es muy útil cuando necesitas usar la salida del comando git log como entrada 
+			para otro programa (pipe)
 										
 		--pretty=oneline --> muestra un commit por línea
 										
 	
 	Parámetros utilizados para filtrar que commits se incluyen en la salida:
 	
-		-NumCommits	--> Limita la salida al nº de comits indicado
+		-NumCommits	
 		
-		--all		--> Muestra todos los commits independientemente de la rama en la que estamos
+			Limita la salida al nº de comits indicado
 		
-		--after		--> Limita la salida a los commits anteriores o posteriores a la fecha indicada entre comillas dobles.
-		--before		OJO: la fecha debe ir en formato yyyy-mm-dd
+		--all
+		
+			Muestra todos los commits independientemente de la rama en la que estamos
+		
+		--after
+		
+			Limita la salida a los commits anteriores o posteriores a la fecha indicada entre comillas dobles.
+			
+		--before <yyyy-mm-dd>
+		
+			OJO: la fecha debe ir en formato yyyy-mm-dd
 		
 						p.ej.: git log --after="2019-12-01"
 							   git log --before="yesterday"
