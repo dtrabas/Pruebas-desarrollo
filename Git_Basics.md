@@ -118,24 +118,17 @@ Introducción
 		
 * `git commit <file>`
 
-	Hace commit del <file> del staged area. Se abre el editor por defecto para escribir la descripción del commit
+	Hace commit del <file> del staged area. Se abre el editor por defecto para escribir la descripción del commit. Ejecutado sin indicar el nombre del fichero que queremos añadir al commit, añadirá todos los ficheros del staged area.
 	
-	`git commit -a`
-  
-	(ó `--all`) Pasa todos los ficheros en seguimiento (tracked) al staged area (e.d. ejecuta git add ./) y después realiza el commit.
+	`git commit -a` (ó `--all`) Pasa todos los ficheros en seguimiento (tracked) al staged area (e.d. ejecuta git add ./) y después realiza el commit.
 	
 	>Ojo: sólo tiene en cuenta los ficheros tracked. Si acabas de crear un fichero nuevo, este estará untracked y no será tenido en cuenta en el commit. Así que primero tendrás que ejecutar 'git add .' para para pasar a tracked los ficheros nuevos.
 	
-	`git commit -m 'descripción del commit' <file>`
-  
-	(ó `--message`) Añade el fichero al stage area y ha commit del mismo. También permite indicar la descripción del commit en la misma línea de comando. 
+	`git commit -m 'descripción del commit' <file>` (ó `--message`) Añade el fichero al stage area y ha commit del mismo. También permite indicar la descripción del commit en la misma línea de comando. 
 	
-	`git commit --amend`
+	`git commit --amend` Nos permite modificar el comentario del último commit y/o añadir el contenido del stage area a dicho commit. Este proceso reemplaza completamente el commit original de tal forma que es como si nunca se hubiera realizado.
+	
 
-	Nos permite modificar el comentario del último commit y/o añadir el contenido del stage area a dicho commit. Este proceso reemplaza completamente el commit original de tal forma que es como si nunca se hubiera realizado.
-	
-	Ejecutado sin indicar el nombre del fichero que queremos añadir al commit, añadirá todos los ficheros del staged area.
-	
 * git rm <file>
 
 	Borra el <file> (rm <file>) y mueve el cambio al stage area (git add <file>)
