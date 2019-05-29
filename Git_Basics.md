@@ -516,23 +516,21 @@ Branching
 
 ---
 
-	. Un commit consiste en una estructura de objetos formada por:
+Un commit consiste en una estructura de objetos formada por:
 	
-		(Usamos como ejemplo un directorio conteniendo tres archivos sobre los que hacemos stage y commit)
+	(Usamos como ejemplo un directorio conteniendo tres archivos sobre los que hacemos stage y commit)
+
+	1. Un Objeto principal del commit: contiene el nombre y email del autor, el mensaje empleado y un puntero a un objeto tree
+
+	2. Un objeto tree: contiene el contenido del directorio y por cada archivo un puntero al objeto blob correspondiente
+		
+	3. Tres objetos blob (uno por archivo del directorio) con el contenido del archivo.
+		
+Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se guarda un puntero al commit del que partió. Una rama es simplemente un puntero a un commit determinado. La rama por defecto en git es `master`.
 	
-		1. Un Objeto principal del commit: contiene el nombre y email del autor, el mensaje empleado y un puntero a un objeto tree
-		
-		2. Un objeto tree: contiene el contenido del directorio y por cada archivo un puntero al objeto blob correspondiente
-		
-		3. Tres objetos blob (uno por archivo del directorio) con el contenido del archivo.
-		
-	. Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se guarda un puntero al commit del que partió
-	
-	. Una rama es simplemente un puntero a un commit determinado
-		
-	. La rama por defecto en git es 'master'
-	
-* git branch <nombreRama>
+---
+
+* `git branch <nombreRama>`
 
 	Crea una nueva rama apuntando al commit en el que estás situado (pero no cambia la rama sobre la que estás)
 	
