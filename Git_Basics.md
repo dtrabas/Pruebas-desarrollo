@@ -382,6 +382,8 @@ Introducción
 
 Remotes
 -------
+
+---
 	
 * `git remote add origin <url_repositorio_remoto>`
 
@@ -440,8 +442,8 @@ Remotes
 		git push -u origin bug#IE-294
 	
 
-    Tags
-=============	
+Tags
+----
 	
 * git tag [nombreNuevoTag]
 
