@@ -1,6 +1,8 @@
 
-RESUMEN DEL eBOOK PRO GIT (https://git-scm.com/book/en/v2)
-==========================================================
+RESUMEN DEL eBOOK PRO GIT
+=========================
+
+[https://git-scm.com/book/en/v2]
 
 
 Parámetros que puedes utilizar ANTES del comando
