@@ -18,7 +18,7 @@ Introducción
 
 * Los ficheros en Git pueden estar en dos estados: tracked o untracked
 
-	. Tracked: son los ficheros que estaban en tu último snapshot. A su vez, pueden estar en tres estados:
+	. *Tracked*: son los ficheros que estaban en tu último snapshot. A su vez, pueden estar en tres estados:
 
 		- Sin modificar (commited): el fichero está guardado en tu database local 
 	
@@ -26,9 +26,9 @@ Introducción
 	
 		- Staged: has marcado un fichero modificado para ir en tu próximo commit snapshot
 		
-	. Untracked: el resto de ficheros. Es decir, ficheros que no estaban en el último snapshot ni están en el stage area.
+	. *Untracked*: el resto de ficheros. Es decir, ficheros que no estaban en el último snapshot ni están en el stage area.
 	
-* Stage area
+* `Stage area`
 
 	Area que contiene los ficheros que serán commiteados en el próximo 'git commit'
 	
