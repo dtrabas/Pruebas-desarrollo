@@ -35,11 +35,13 @@ Introducción
 	Abre en el navegador por defecto la `man page` del comando indicado
 	
 ---
+
 * `git <nombreComandoGit> -h`
 
 	(ó `--help`)
 	
 	Muestra por consola los parámetros disponibles para el comando indicado.
+	
 ---
 
 * `git status`
@@ -76,6 +78,7 @@ Introducción
 		
 		Area que contiene los ficheros que serán commiteados en el próximo `git commit`
 	
+---
 		
 * Fichero .gitignore
 
@@ -94,6 +97,7 @@ Introducción
 	
 	Por ejemplo, para omitir todos los archivos con extensión tmp: **.tmp
 	
+---
 			
 * `git add <file>`
 
@@ -101,7 +105,7 @@ Introducción
 
 ---
 
-`git diff <parametros> <file>`
+* `git diff <parametros> <file>`
 
 	Sin parámetros: Muestra los cambios del fichero *Modified* (no está aún *staged*) respecto del fichero en el area staged ó de su último *commit* si no está en dicho area
 
