@@ -18,22 +18,6 @@ Parámetros que puedes utilizar ANTES del comando
 Introducción
 -------------
 
-* Los ficheros en Git pueden estar en dos estados: tracked o untracked
-
-	*Tracked*: son los ficheros que estaban en tu último snapshot. A su vez, pueden estar en tres estados:
-
-		- Sin modificar (commited): el fichero está guardado en tu database local 
-	
-		- Modificado: has cambiado el fichero pero aún no lo has añadido al stage area.
-	
-		- Staged: has marcado un fichero modificado para ir en tu próximo commit snapshot
-		
-	*Untracked*: el resto de ficheros. Es decir, ficheros que no estaban en el último snapshot ni están en el stage area.
-	
-* **Stage area**
-
-	Area que contiene los ficheros que serán commiteados en el próximo `git commit`
-	
 * `git init`
 
 	Situados en la carpeta que queremos que controle git, este comando creará la carpeta oculta `.git` que contendrá el esqueleto del repositorio git para esa carpeta. En este punto ningún fichero de la carpeta está trackeado todavía.
@@ -68,7 +52,24 @@ Introducción
 		.  M Fichero (trackeado) modificado
 		. MM Fichero (trackeado) modificado, stageado y modificado de nuevo
 		. AM Fichero nuevo añadido al stage area  y modificado de nuevo 
+
+	Los ficheros en Git pueden estar en dos estados: tracked o untracked
+
+		*Tracked*: son los ficheros que estaban en tu último snapshot. A su vez, pueden estar en tres estados:
 	
+			- Sin modificar (commited): el fichero está guardado en tu database local 
+		
+			- Modificado: has cambiado el fichero pero aún no lo has añadido al stage area.
+		
+			- Staged: has marcado un fichero modificado para ir en tu próximo commit snapshot
+			
+		*Untracked*: el resto de ficheros. Es decir, ficheros que no estaban en el último snapshot ni están en el stage area.
+	
+		*Stage area*
+		
+			Area que contiene los ficheros que serán commiteados en el próximo `git commit`
+	
+		
 * Fichero .gitignore
 
 	Contiene los ficheros de los que no queremos que se haga tracking. Para un proyecto java típico serían:
