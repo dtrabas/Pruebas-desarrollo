@@ -406,6 +406,22 @@ Remotes
 
 	Muestra información sobre el repositorio remoto <origin>
 	
+		$ git remote show origin
+		* remote origin
+		Fetch URL: https://github.com/dtrabas/Pruebas-desarrollo.git
+		Push  URL: https://github.com/dtrabas/Pruebas-desarrollo.git
+		HEAD branch: master
+		Remote branches:
+			develop tracked
+			master  tracked
+		Local branches configured for 'git pull':
+			develop merges with remote develop
+			master  merges with remote master
+		Local refs configured for 'git push':
+			develop pushes to develop (up to date)
+			master  pushes to master  (fast-forwardable)
+	
+	
 ---
 	
 * `git remote remove <nombre_repo>`
@@ -414,7 +430,7 @@ Remotes
 
 ---
 	
-* git remote rename <nombre_repo> <nombre_nuevo>``
+* `git remote rename <nombre_repo> <nombre_nuevo>`
 
 	Cambia el nombre del repositorio remoto
 	
@@ -435,10 +451,14 @@ Remotes
 	Hace un `git fetch` seguido de un `git merge` de la rama actual con la del respositorio remoto
 
 ---
+
+* `git push origin <branch>`
+
+	Actualiza la rama indicada en el remoto siempre que dicha rama ya exista.
 	
 * `git push --set-upstream <remote> <branch>`
 
-	Sube la rama indicada al repositorio remoto. Por ejemplo:
+	Sube la rama indicada al repositorio remoto por primera vez. Por ejemplo:
 	
 		git push --set-upstream origin bug#IE-294
 		
