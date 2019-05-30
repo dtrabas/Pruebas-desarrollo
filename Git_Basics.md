@@ -374,6 +374,11 @@ Introducción
 
 ---
 
+* `git show <ID_DEL_COMMIT>`
+
+	Muestra los cambios realizados en los ficheros que fueron modificados en el commit indicado.
+	
+
 * `git show --pretty="" --name-only <ID_DEL_COMMIT>`
 
 	Muestra la lista de los ficheros que fueron modificados en el commit indicado
