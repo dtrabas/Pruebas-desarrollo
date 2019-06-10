@@ -617,7 +617,7 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 		
 ---
 		
-* 'git branch'
+* `git branch`
 
 	Sin parámetros, lista todas las ramas LOCALES
 	
@@ -635,7 +635,7 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 
 	Elimina la rama indicada
 	
-	> Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error 'error: The branch 'hotfix2' is not fully merged' y necesitas ejecutar el comando así `git branch -D hotfix2` --> (`-D = Force delete`)
+	> Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error '*error: The branch 'hotfix2' is not fully merged*' y necesitas ejecutar el comando así `git branch -D hotfix2` --> (`-D = Force delete`)
 	
 	> Ojo2: cuando borras la rama, ésta deja de aparecer en el SourceTree...
 
@@ -644,25 +644,29 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 Deshaciendo cosas	
 -----------------
 
-* Sacar el <file> del stage area
+* `git reset HEAD <file>`
 
-	git reset HEAD <file>
+	Sacar el fichero indicado del stage area
 
-* Hace un discard de los cambios realizados en el <file> que todavía no están en el stage area 
+	
 
-	git checkout -- <file>
+* `git checkout -- <file>`
+
+	Hace un discard de los cambios realizados en el fichero indicado que todavía no están en el stage area 
 	
 	Por ejemplo, cuando hacemos el merge de la rama RELEASE_X.Y sobre develop y nos da conflicto el pom.xml, para no tenerlo en cuenta tenemos que ejecutar los siguientes comandos:
 	
 		git reset HEAD pom.xml	
 	    git checkout -- pom.xml
 		
-* Deshacer merge:
+* `git reset --hard HEAD`
 
-	git reset --hard HEAD
+	Deshacer merge:
 	
-* Deshacer el último commit (deja los ficheros commiteados como unstaged)
+	
+* `git reset HEAD~1`
 
-	git reset HEAD~1
+	Deshacer el último commit (deja los ficheros commiteados como unstaged)
+
 
 ---
