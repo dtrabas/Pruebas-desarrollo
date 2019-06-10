@@ -624,12 +624,15 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 	Con parámetros:
 	
 		-r 	
-		
 			Lista sólo ramas REMOTAS
 		
 		-a	
-		
 			Lista TODAS las ramas
+			
+	Se muestra un * delante de la rama sobre la que estamos situados.
+	
+	`git branch -v` muestra la información del último commit de cada rama.
+	
 	
 * `git branch -d <nombreRama>`
 
@@ -677,11 +680,13 @@ Si consideramos que sería de ayuda para otros desarrolladores que vean este mer
 Deshaciendo cosas	
 -----------------
 
+---
+
 * `git reset HEAD <file>`
 
 	Sacar el fichero indicado del stage area
-
 	
+---
 
 * `git checkout -- <file>`
 
@@ -692,14 +697,16 @@ Deshaciendo cosas
 		git reset HEAD pom.xml	
 	    git checkout -- pom.xml
 		
+---
+		
 * `git reset --hard HEAD`
 
 	Deshacer merge:
 	
+---
 	
 * `git reset HEAD~1`
 
 	Deshacer el último commit (deja los ficheros commiteados como unstaged)
-
 
 ---
