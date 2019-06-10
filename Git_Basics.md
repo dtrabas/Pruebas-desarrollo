@@ -561,7 +561,7 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 
 	Crea una nueva rama apuntando al commit en el que estás situado (pero no cambia la rama sobre la que estás)
 	
-	¿ Como sabe Git la rama en la que estás ?: git mantiene un puntero especial llamado HEAD con el nombre de la rama actual (fichero ./.git/HEAD)
+	¿ Como sabe Git la rama en la que estás ? git mantiene un puntero especial llamado HEAD con el nombre de la rama actual (fichero `./.git/HEAD`)
 	
 	Con este comando tienes una representación muy acertada de a donde apunta cada commit:
 	
@@ -638,6 +638,39 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 	> Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error '*error: The branch 'hotfix2' is not fully merged*' y necesitas ejecutar el comando así `git branch -D hotfix2` --> (`-D = Force delete`)
 	
 	> Ojo2: cuando borras la rama, ésta deja de aparecer en el SourceTree...
+
+---	
+
+Resolviendo conflictos	
+----------------------
+
+---
+
+En ocasiones, el proceso de mergeo no termina bien. Si se ha cambiado la misma parte del mismo ficher oen las dos ramas que estamos mergeando, Git no será capaz de meregearlas limpiamente. Si falla el merge, no se creará ningún commit automáticamente y tendremos que resolver el confflicto antes de poder continuar.
+
+Una vez corregido el conflicto, ejecutamos `git add`para marcarlo como resuelto. A continuación podremos hacer `git commit` para finalizar el mergeo. El mensaje de este commit, por defecto parece algo así:
+
+		Merge branch 'iss53'
+
+		Conflicts:
+			index.html
+		#
+		# It looks like you may be committing a merge.
+		# If this is not correct, please remove the file
+		#	.git/MERGE_HEAD
+		# and try again.
+		
+		
+		# Please enter the commit message for your changes. Lines starting
+		# with '#' will be ignored, and an empty message aborts the commit.
+		# On branch master
+		# All conflicts fixed but you are still merging.
+		#
+		# Changes to be committed:
+		#	modified:   index.html
+		#
+		
+Si consideramos que sería de ayuda para otros desarrolladores que vean este merge en el futuro, puedes modificar este mensaje y explicar el motivo por el que hiciste los cambios que hiciste si estos no son obvios.	
 
 ---	
 
