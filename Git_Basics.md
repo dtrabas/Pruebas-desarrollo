@@ -719,9 +719,53 @@ Las *referencias remotas* son referencias (punteros) en los repositorios remotos
 
 Remote-tracking branches are references to the state of remote branches. They’re local references that you can’t move; Git moves them for you whenever you do any network communication, to make sure they accurately represent the state of the remote repository. Think of them as bookmarks, to remind you where the branches in your remote repositories were the last time you connected to them.
 
-Remote-tracking branch names take the form `<remote>/<branch>`. For instance, if you wanted to see what the master branch on your origin remote looked like as of the last time you communicated with it, you would check the origin/master branch. If you were working on an issue with a partner and they pushed up an iss53 branch, you might have your own local iss53 branch, but the branch on the server would be represented by the remote-tracking branch origin/iss53
+Remote-tracking branch names take the form `<remote>/<branch>`. For instance, if you wanted to see what the master branch on your origin remote looked like as of the last time you communicated with it, you would check the `origin/master` branch. If you were working on an issue with a partner and they pushed up an iss53 branch, you might have your own local `iss53` branch, but the branch on the server would be represented by the remote-tracking branch `origin/iss53`.
 
-> “origin” is not special: Just like the branch name “master” does not have any special meaning in Git, neither does “origin”. While “master” is the default name for a starting branch when you run git init which is the only reason it’s widely used, “origin” is the default name for a remote when you run git clone. If you run git clone -o booyah instead, then you will have booyah/master as your default remote branch.
+> “origin” is not special: Just like the branch name “master” does not have any special meaning in Git, neither does “origin”. While “master” is the default name for a starting branch when you run `git init` which is the only reason it’s widely used, “origin” is the default name for a remote when you run `git clone`. If you run git `clone -o booyah` instead, then you will have `booyah/master` as your default remote branch.
 
 ---
 
+* `git fetch`
+
+	Para sincronizar tu trabajo con el remoto por defecto (origin), ejecutamos `git fetch` (si no fuera el remoto por defecto bastaría con añadir su nombre al final del comando). Este comando *trae* a tu equipo cualquier información 8ramas, tags, etc) que no tengamos y actualiza nuestra base de datos local, moviendo el puntero de las *remote-tracking branch* a su posición mas actual.
+
+---
+
+* `git checkout -b <nombreRama> origin/<nombreRama>`
+
+	Crea una rama local con el nombre indicado que apunta al estado actual de esa rama en el remoto.
+	
+	> Es un comando tan habitual que lo puedes abreviar a `git checkout <nombreRama>`: si existe la rama en repositorio remoto por defecto, automáticamente la creará en tu repositorio local con el mismo nombre.
+	
+---
+
+* `git branch -u origin/<nombreRama>`
+
+	(o --set-upstream-to)
+
+	Crea la rama local en la que estás situado en el repositorio remoto con el nombre de rama indicado.
+	
+	> Upstream shorthand: When you have a tracking branch set up, you can reference its upstream branch with the @{upstream} or @{u} shorthand. So if you’re on the master branch and it’s tracking origin/master, you can say something like git merge @{u} instead of git merge origin/master if you wish.
+	
+---
+
+* `git pull`
+
+	Hace un `git fetch` seguido inmediatamente de un `git merge`: actualiza tu rama lcoal con los datos de la rama remota.
+	
+	> Generally it’s better to simply use the fetch and merge commands explicitly as the magic of git pull can often be confusing.
+	
+---
+
+* `git push origin --delete <nombreRama>`
+
+	Borra la rama indicada en el repositorio remoto (por ejemplo, cuando ya se ha mergeado y nadie la necesita más).
+	
+---
+
+Git Branching - Rebasing
+------------------------
+
+---
+
+	
