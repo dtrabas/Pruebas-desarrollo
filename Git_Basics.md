@@ -577,6 +577,12 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 		-v	
 		
 			Muestra el último commit de cada rama
+			
+		-r 	
+			Lista sólo ramas REMOTAS
+		
+		-a	
+			Lista TODAS las ramas
 		
 		--merged
 		
@@ -591,8 +597,37 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 						
 			Si a continuación pones un nombreRama, el comando mostrará solo las ramas pendientes de mergear 
 			en *nombreRama*.
+
+			
+* `git branch -d <nombreRama>`
+
+	Elimina la rama indicada
 	
----
+	> Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error '*error: The branch 'hotfix2' is not fully merged*' y necesitas ejecutar el comando así `git branch -D hotfix2` --> (`-D = Force delete`)
+	
+	> Ojo2: cuando borras la rama, ésta deja de aparecer en el SourceTree...
+	
+* `git branch -m <newName>`
+
+	Renombra la rama sobre la que estamos situados. 
+	
+	Si estamos en otra rama: `git branch -m <oldName> <newName>`.
+	
+	No es posible renombrar una rama remota. Tienes que eliminarla primero y volver a hacer el push con el nombre correcto:
+	
+		# Rename the local branch to the new name
+		git branch -m <old_name> <new_name>
+		
+		# Delete the old branch on remote - where <remote> is, for example, origin
+		git push <remote> --delete old_name
+		
+		# Push the new branch to remote
+		git push <remote> new_name
+		
+		# Reset the upstream branch for the new_name local branch
+		git push <remote> -u new-name
+
+---	
 	
 * `git checkout <nombreRama>`
 
@@ -615,33 +650,6 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 		git merge -m 'Mensaje del merge' <nombreRama>
 		
 ---
-		
-* `git branch`
-
-	Sin parámetros, lista todas las ramas LOCALES
-	
-	Con parámetros:
-	
-		-r 	
-			Lista sólo ramas REMOTAS
-		
-		-a	
-			Lista TODAS las ramas
-			
-	Se muestra un * delante de la rama sobre la que estamos situados.
-	
-	`git branch -v` muestra la información del último commit de cada rama.
-	
-	
-* `git branch -d <nombreRama>`
-
-	Elimina la rama indicada
-	
-	> Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error '*error: The branch 'hotfix2' is not fully merged*' y necesitas ejecutar el comando así `git branch -D hotfix2` --> (`-D = Force delete`)
-	
-	> Ojo2: cuando borras la rama, ésta deja de aparecer en el SourceTree...
-
----	
 
 Resolviendo conflictos	
 ----------------------
