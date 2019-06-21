@@ -771,9 +771,22 @@ Remote-tracking branch names take the form `<remote>/<branch>`. For instance, if
 	
 ---
 
-Git Branching - Rebasing
-------------------------
+Git Branching - Rebasing (Reorganizar)
+--------------------------------------
 
 ---
 
-	
+En Git hay dos formas de integrar los cambios de una rama en otra: `merge` y `rebase`. La diferencia entre ambos métodos está en como queda la historia de la rama principal. Con `rebase` la historia queda lineal. Cuando integras tu trabajo con la rama remota principal se pierde la información de subramas que hayas tenido durante tu desarrollo.
+
+Es super importante que **Nunca reorganices confirmaciones de cambio (commits) que hayas enviado (push) a un repositorio público**.
+
+Normalmente, la manera de sacar lo mejor es reorganizar tu trabajo local, que aun no has compartido, antes de enviarlo a algún lugar; pero nunca reorganizar nada que ya haya sido compartido.
+
+---
+
+Git en el Servidor - Los Protocolos
+-----------------------------------
+
+
+
+---	
