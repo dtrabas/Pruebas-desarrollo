@@ -656,9 +656,9 @@ Resolviendo conflictos
 
 ---
 
-En ocasiones, el proceso de mergeo no termina bien. Si se ha cambiado la misma parte del mismo ficher oen las dos ramas que estamos mergeando, Git no será capaz de meregearlas limpiamente. Si falla el merge, no se creará ningún commit automáticamente y tendremos que resolver el confflicto antes de poder continuar.
+En ocasiones, el proceso de mergeo no termina bien. Si se ha cambiado la misma parte del mismo fichero en las dos ramas que estamos mergeando, Git no será capaz de meregearlas limpiamente. Si falla el merge, no se creará ningún commit automáticamente y tendremos que resolver el confflicto antes de poder continuar.
 
-Una vez corregido el conflicto, ejecutamos `git add`para marcarlo como resuelto. A continuación podremos hacer `git commit` para finalizar el mergeo. El mensaje de este commit, por defecto parece algo así:
+Una vez corregido el conflicto, ejecutamos `git add` para marcarlo como resuelto. A continuación podremos hacer `git commit` para finalizar el mergeo. El mensaje de este commit, por defecto parece algo así:
 
 		Merge branch 'iss53'
 
@@ -723,7 +723,7 @@ Remote Branching
 
 ---
 
-Las *referencias remotas* son referencias (punteros) en los repositorios remotos, incluyendo ramas 8branches), tags, etc... Puedes obtenre una lista completa de referencias remotas con el comando `git ls-remote` ó `git remote show`.
+Las *referencias remotas* son referencias (punteros) en los repositorios remotos, incluyendo ramas (branches), tags, etc... Puedes obtener una lista completa de referencias remotas con el comando `git ls-remote` ó `git remote show`.
 
 Remote-tracking branches are references to the state of remote branches. They’re local references that you can’t move; Git moves them for you whenever you do any network communication, to make sure they accurately represent the state of the remote repository. Think of them as bookmarks, to remind you where the branches in your remote repositories were the last time you connected to them.
 
@@ -735,7 +735,7 @@ Remote-tracking branch names take the form `<remote>/<branch>`. For instance, if
 
 * `git fetch`
 
-	Para sincronizar tu trabajo con el remoto por defecto (origin), ejecutamos `git fetch` (si no fuera el remoto por defecto bastaría con añadir su nombre al final del comando). Este comando *trae* a tu equipo cualquier información 8ramas, tags, etc) que no tengamos y actualiza nuestra base de datos local, moviendo el puntero de las *remote-tracking branch* a su posición mas actual.
+	Para sincronizar tu trabajo con el remoto por defecto (origin), ejecutamos `git fetch` (si no fuera el remoto por defecto bastaría con añadir su nombre al final del comando). Este comando *trae* a tu equipo cualquier información (ramas, tags, etc) que no tengamos y actualiza nuestra base de datos local, moviendo el puntero de las *remote-tracking branch* a su posición mas actual.
 
 ---
 
