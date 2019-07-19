@@ -119,7 +119,15 @@ Introducción
 	
 	>Ojo: si el fichero está en el área *staged*, `git diff` sin parámetros no mostrará ningún cambio!!!
 	
-* `git diff <ID_DE_COMMIT_A_COMPARAR> <file>` 
+. git diff COMMIT
+
+	Muestra las diferencias con el commit indicado
+	
+. git diff COMMIT~ COMMIT
+
+	Muestra los cambios que se introdujeron en un commit determinado
+	
+* `git diff COMMIT <file>` 
 
 	Muestra los cambios de los ficheros *Modified/Staged* respecto de ese *commit*. 
 	
