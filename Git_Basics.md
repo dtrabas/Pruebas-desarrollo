@@ -807,5 +807,42 @@ Git puede usar cuatro protocolos principales para transferir datos: Local, HTTP,
 
 ---	
 
-Git en entornos distribuidos - Flujos de trabajo distribuidos
--------------------------------------------------------------
+Flujos de trabajo distribuidos
+------------------------------
+
+En este capítulo verás como trabajar con Git en un entorno distribuido como colaborador o como integrador. Es decir, aprenderás como contribuir adecuadamente a un proyecto, de manera fácil tanto para ti como para el responsable del proyecto, y también como mantener adecuadamente un proyecto con múltiples desarrolladores.
+
+	... PENDIENTE CONTINUAR ...
+
+---
+
+Git Tools - Stashing
+
+---
+
+* `git stash`
+
+	Guarda los ficheros que tenías pendientes de commitear: crea un **stash** con el nombre **WIP on RAMA_ACTUAL: 99999999 Ultima acción que hiciste**. 
+
+	Por ejemplo: 
+	
+		**WIP on RELEASE_3.1: 6076a7789 Merge branch 'bug#IE-321' into 'RELEASE_3.1'**
+
+---
+
+* `git stash list`
+
+	Muestra los ***stashes*** disponibles ordenados por el más reciente
+	
+---
+
+* `stash apply`
+
+	Aplica el stash más reciente. Si se quiere uno anterior, utilizamos `git stash apply stash@{x}` siendo x el número delsatash a aplicar.
+	
+---
+
+* `git stash drop`
+
+	Elimina el último stash. Si se quiere eliminar uno anterior utilizamos `git stash drop stash@{x}` siendo x el número delsatash a eliminar.
+
