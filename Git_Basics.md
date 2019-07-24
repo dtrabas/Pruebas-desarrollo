@@ -861,3 +861,9 @@ Git Tools - Stashing
 	Muestra el contenido del último stash. Como siempre, utilizamos `git stash show stash@{x}` para consultar el contenido de un stash concreto.
 	
 ---
+
+* `git stash show -p stash@{1}`
+
+	Muestra los cambios (**diff**) del stash indicado.
+	
+---
