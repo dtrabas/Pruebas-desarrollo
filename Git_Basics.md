@@ -844,7 +844,7 @@ Git Tools - Stashing
 	
 ---
 
-* `stash apply`
+* `git stash apply`
 
 	Aplica el stash más reciente. Si se quiere uno anterior, utilizamos `git stash apply stash@{x}` siendo x el número delsatash a aplicar.
 	
@@ -854,3 +854,10 @@ Git Tools - Stashing
 
 	Elimina el último stash. Si se quiere eliminar uno anterior utilizamos `git stash drop stash@{x}` siendo x el número delsatash a eliminar.
 
+---
+
+* `git stash show`
+
+	Muestra el contenido del último stash. Como siempre, utilizamos `git stash show stash@{x}` para consultar el contenido de un stash concreto.
+	
+---
