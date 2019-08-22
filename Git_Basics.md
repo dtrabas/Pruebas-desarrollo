@@ -611,13 +611,13 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 
 	Elimina la rama (local) indicada
 	
-	> Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error '*error: The branch 'hotfix2' is not fully merged*' y necesitas ejecutar el comando así `git branch -D hotfix2` --> (`-D = Force delete`)
+	> Ojo: tienes que estar situado en una rama en la que se haya mergeado la rama que quieres borrar. En caso contrario, te sale el error '*error: The branch 'hotfix2' is not fully merged*' y necesitas ejecutar el comando así `git branch -D hotfix2` (-D = Force delete)
 	
 	> Ojo2: cuando borras la rama, ésta deja de aparecer en el SourceTree...
 	
 	Si quieres borrar todas las ramas locales excepto la actual (*), develop y todas las que empiecen por RELEASE:
 	
-		`git branch | grep -v master | grep -v \* | grep -v RELEASE | grep -v develop | xargs git branch -d`
+		git branch | grep -v master | grep -v \* | grep -v RELEASE | grep -v develop | xargs git branch -d
 	
 * `git branch -m <newName>`
 
