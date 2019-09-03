@@ -705,6 +705,10 @@ Deshaciendo cosas
 
 	Sacar el fichero indicado del stage area
 	
+	También puedes usar `git reset HEAD` para sacar todos los ficheros 
+	
+	(En versiones a partir de la 1.8 puedes usar el comando sin indicar HEAD...)
+	
 ---
 
 * `git checkout -- <file>`
