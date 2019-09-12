@@ -781,7 +781,7 @@ Remote-tracking branch names take the form `<remote>/<branch>`. For instance, if
 	
 ---
 
-* `git push origin --delete <nombreRama>`
+* `git push --delete origin <nombreRama>`
 
 	Borra la rama indicada en el repositorio remoto (por ejemplo, cuando ya se ha mergeado y nadie la necesita más).
 	
