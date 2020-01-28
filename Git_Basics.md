@@ -725,10 +725,21 @@ Deshaciendo cosas
 	
 ---
 	
-* `git reset HEAD~1`
-  `git reset --soft HEAD~`
+* `git reset --soft HEAD~`
 
-	Deshacer el último commit (deja los ficheros commiteados como unstaged)
+	Deshace el último commit pero dejando los ficheros en estado staged
+
+---
+
+* `git reset HEAD~1`
+
+	Deshacer el último commit dejando los ficheros commiteados como unstaged
+
+---
+
+* `git reset --hard HEAD~1`
+
+	Deshacer el último commit y elimina completamente todos los cambios commiteados
 
 ---
 
