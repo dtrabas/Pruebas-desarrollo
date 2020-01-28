@@ -633,10 +633,7 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 		# Delete the old branch on remote - where <remote> is, for example, origin
 		git push <remote> --delete old_name
 		
-		# Push the new branch to remote
-		git push <remote> new_name
-		
-		# Reset the upstream branch for the new_name local branch
+		# Finally, push the <new_name> local branch and reset the upstream branch
 		git push <remote> -u new-name
 
 ---	
@@ -729,6 +726,7 @@ Deshaciendo cosas
 ---
 	
 * `git reset HEAD~1`
+  `git reset --soft HEAD~`
 
 	Deshacer el último commit (deja los ficheros commiteados como unstaged)
 
