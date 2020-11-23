@@ -119,11 +119,11 @@ Introducción
 	
 	>Ojo: si el fichero está en el área *staged*, `git diff` sin parámetros no mostrará ningún cambio!!!
 	
-. git diff COMMIT
+. `git diff COMMIT`
 
 	Muestra las diferencias con el commit indicado
 	
-. git diff COMMIT~ COMMIT
+. `git diff COMMIT~ COMMIT`
 
 	Muestra los cambios que se introdujeron en un commit determinado
 	
@@ -136,6 +136,18 @@ Introducción
 * `git diff HEAD <file>` 
 
 	Mostrará todos los cambios del fichero ya esté *modificado* o en el *stage area*.
+	
+* `git diff rama_x rama_y`
+
+	Muestra las diferencias entre las dos ramas indicadas
+	
+* `git diff master~2`
+
+	Muestra las diferencias entre master~2 y HEAD
+	
+* git diff rama_x rama_y --nombreFichero
+
+	Muestra las diferencias entre las ramas indicadas del fichero 
 	
 ---
 		
@@ -157,6 +169,10 @@ Introducción
 
 	Nos permite modificar el comentario del último commit y/o añadir el contenido del stage area a dicho commit. Este proceso reemplaza completamente el commit original de tal forma que es como si nunca se hubiera realizado.
 	
+* Puedes usar <commit>^n para referirte al numero (n) de padre de un commit y <commit>~n para referirte al ancestro (n) de su historia.
+   
+	La notacion ancestro sigue la linea del primer padre (Cx^1): es decir, master~1=master^1
+
 ---	
 
 * `git rm <file>`
@@ -371,8 +387,16 @@ Introducción
 		
 			git --git-dir=e-Tica_web/.git --no-pager log --no-merges --grep "1.4-RC-" 
 			    --after="2018-01-01" --before="2018-12-31"
-
----
+				
+		* Mostrar los tres ultimos commits
+		
+			git log -3
+		
+		* Mostrar los commits en una sola linea con la historia en forma de grafo
+		
+			git log --oneline --graph
+        
+---     
 
 * `git shortlog`
 
@@ -391,6 +415,10 @@ Introducción
 
 	Muestra la lista de los ficheros que fueron modificados en el commit indicado
 	
+* `git show <nombreRama>`
+
+	Muestra la información del último commit en nombreRama y las diferencias añadidas en el último commit
+
 ---
 
 Remotes
@@ -428,7 +456,6 @@ Remotes
 		Local refs configured for 'git push':
 			develop pushes to develop (up to date)
 			master  pushes to master  (fast-forwardable)
-	
 	
 ---
 	
@@ -564,6 +591,12 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 	
 ---
 
+* `git branch`
+
+	Sin parámetros, muestra las ramas que tenemos. Un asterisco nos indica cual es la rama activa (en la que estamos situados).
+	
+	Con el parámetro -v nos da mas información a parte del nombre como por ejemplo el commit.
+
 * `git branch <nombreRama>`
 
 	Crea una nueva rama apuntando al commit en el que estás situado (pero no cambia la rama sobre la que estás)
@@ -618,7 +651,7 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 	Si quieres borrar todas las ramas locales excepto la actual (*), develop y todas las que empiecen por RELEASE:
 	
 		git branch | grep -v master | grep -v \* | grep -v RELEASE | grep -v develop | xargs git branch -d
-	
+		
 * `git branch -m <newName>`
 
 	Renombra la rama sobre la que estamos situados. 
@@ -645,6 +678,16 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 	Para crear automáticamente la nueva rama, añade el parámetro -b
 	
 		git checkout -b <nombreRama>
+		
+	A partir de la version 2.23 de Git, se recomienda usar este nuevo comando para cambiar de rama:
+	
+		git switch <nombreRama>
+	
+---
+	
+* git checkout <commit>
+
+	Restaura el commit en el directorio de trabajo (es decir, actualiza HEAD con ese commit)
 		
 ---
 		
@@ -717,6 +760,10 @@ Deshaciendo cosas
 		git reset HEAD pom.xml	
 	    git checkout -- pom.xml
 		
+	A partir de la version 2.23 de Git, para descartar los cambios en un fichero es preferible usar el siguiente comando:
+	
+		git restore <file>
+		
 ---
 		
 * `git reset --hard HEAD`
@@ -742,6 +789,27 @@ Deshaciendo cosas
 	Deshacer el último commit y elimina completamente todos los cambios commiteados
 
 ---
+
+* `git reset <commit>`
+
+	Cambia el puntero de rama y HEAD a <commit>. Deja las diferencias entre HEAD y <commit> en el directorio de trabajo. Es decir, restaura el contenido de <commit> añadiendo las diferencias que teníamos.
+	
+	>Peligro! Se pueden perder commits del grafo si los eliminados no están guardados en otra rama
+	
+	Es útil cuando hemos ido haciendo muchos commits durante nuestro desarrollo y queremos unirlos todos en uno solo para simplificar el grafo. Pero siempre que no hayas hecho ya push al repositorio remoto (origin)
+	
+---
+
+* git reset --hard <commit>``
+
+	>Muy Peligroso! Cambia el puntero al commit indicado perdiéndose todos los cambios entre ese commit y el actual.
+	
+	Por ejemplo:
+	
+		git reset --hard master~2 
+		
+	Mueve HEAD al 2º ancestro. Los últimos 2 commits de la rama desaparecerán si no estuvieran en otra rama 
+
 
 Remote Branching
 ----------------
