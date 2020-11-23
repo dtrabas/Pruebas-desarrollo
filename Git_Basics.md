@@ -800,7 +800,7 @@ Deshaciendo cosas
 	
 ---
 
-* git reset --hard <commit>``
+* `git reset --hard <commit>`
 
 	>Muy Peligroso! Cambia el puntero al commit indicado perdiéndose todos los cambios entre ese commit y el actual.
 	
