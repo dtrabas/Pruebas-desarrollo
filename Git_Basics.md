@@ -500,6 +500,10 @@ Remotes
 		ó
 		
 		git push -u origin bug#IE-294
+		
+* `git push --all origin`
+
+	Sincroniza todas las ramas
 	
 ---
 
