@@ -26,8 +26,14 @@ Introducción
 	
 * `git clone <url>`
 
-	Clona un repositorio existente en la carpeta en la que estamos situados. La primera vez que clonas un repositorio, todos los ficheros están en estado *tracked* y *sin modificar*.
-
+	Clona un nuevo repositorio local en la carpeta en la que estamos situados, donde copia la rama master del respositorio clonado. La primera vez que clonas un repositorio, todos los ficheros están en estado *tracked* y *sin modificar*.
+	
+	Además asocia el nombre de remote **origin** al repositorio origen de la clonación.
+	
+	git clone <url> <carpeta> 
+	
+		Creará el nuevo repositorio en la carpeta indicada.
+	
 ---	
 	
 * `git help <nombreComandoGit>`
@@ -597,7 +603,7 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 
 * `git branch`
 
-	Sin parámetros, muestra las ramas que tenemos. Un asterisco nos indica cual es la rama activa (en la que estamos situados).
+	Sin parámetros, muestra las ramas que tenemos en nuestro repositorio local. Un asterisco nos indica cual es la rama activa (en la que estamos situados).
 	
 	Con el parámetro -v nos da mas información a parte del nombre como por ejemplo el commit.
 
@@ -622,6 +628,10 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 		-v	
 		
 			Muestra el último commit de cada rama
+			
+		-vv
+		
+			Muestra en las ramas *tracking* (que siguen a una rama remota) la rama remota asociada y su estado
 			
 		-r 	
 			Lista sólo ramas REMOTAS
@@ -833,6 +843,12 @@ Remote-tracking branch names take the form `<remote>/<branch>`. For instance, if
 * `git fetch`
 
 	Para sincronizar tu trabajo con el remoto por defecto (origin), ejecutamos `git fetch` (si no fuera el remoto por defecto bastaría con añadir su nombre al final del comando). Este comando *trae* a tu equipo cualquier información (ramas, tags, etc) que no tengamos y actualiza nuestra base de datos local, moviendo el puntero de las *remote-tracking branch* a su posición mas actual.
+	
+---
+
+* `git fetch -p origin`
+
+	Con la opción -p (--prune) actualiza las ramas de origin eliminando las que ya no existan
 
 ---
 
