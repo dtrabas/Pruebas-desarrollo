@@ -125,11 +125,11 @@ Introducción
 	
 	>Ojo: si el fichero está en el área *staged*, `git diff` sin parámetros no mostrará ningún cambio!!!
 	
-. `git diff COMMIT`
+* `git diff COMMIT`
 
 	Muestra las diferencias con el commit indicado
 	
-. `git diff COMMIT~ COMMIT`
+* `git diff COMMIT~ COMMIT`
 
 	Muestra los cambios que se introdujeron en un commit determinado
 	
@@ -174,6 +174,10 @@ Introducción
 * `git commit --amend` 
 
 	Nos permite modificar el comentario del último commit y/o añadir el contenido del stage area a dicho commit. Este proceso reemplaza completamente el commit original de tal forma que es como si nunca se hubiera realizado.
+	
+	Si solo queremos añadir algún fichero sin cambiar el comentario del commit:
+	
+		git commit --amend --no-edit
 	
 * Puedes usar <commit>^n para referirte al numero (n) de padre de un commit y <commit>~n para referirte al ancestro (n) de su historia.
    
@@ -774,33 +778,39 @@ Deshaciendo cosas
 		git reset HEAD pom.xml	
 	    git checkout -- pom.xml
 		
-	A partir de la version 2.23 de Git, para descartar los cambios en un fichero es preferible usar el siguiente comando:
+---
+
+* `git checkout <commit>~1 -- <file>`
+
+	Recuperar el estado del fichero indicado ANTES del commit que queremos deshacer.
 	
-		git restore <file>
+	Es el comando que usaríamos para recuperar un fichero que borramos accidentalmente en un commit anterior. 
+	
+	Podemos consultar los distintos commit que han *tocado* un fichero así:
+	
+		git log -- <file>
 		
 ---
 		
-* `git reset --hard HEAD`
-
-	Deshacer merge:
+* `git restore <file>`
+		
+	A partir de la version 2.23 de Git, para descartar los cambios en un fichero es preferible usar `git restore`.
+	
+	Este comando recuperará el último estado del fichero incluso si lo hemos borrado.
+	
+	Para descartar solo alguno de los cambios que hemos hecho, añadimos el parámetro -p:
+	
+		git restore -p <file>
+		
+	Git nos irá preguntando que queremos hacer con cada trozo (*chunk*) que hayamos modificado en el fichero.
 	
 ---
+
+* `git revert <commit>`	
+
+	Crea un nuevo commit que contiene los cambios *opuestos* de los que tenía el commit indicado. Es decir, si en el commit habíamos eliminado 10 líneas, en el nuevo commit se añaden.
 	
-* `git reset --soft HEAD~`
-
-	Deshace el último commit pero dejando los ficheros en estado staged
-
----
-
-* `git reset HEAD~1`
-
-	Deshacer el último commit dejando los ficheros commiteados como unstaged
-
----
-
-* `git reset --hard HEAD~1`
-
-	Deshacer el último commit y elimina completamente todos los cambios commiteados
+	>Es decir, este comando no *borra* el commit que queremos deshacer (lo que podría ser problemático si ya lo hemos subido al remoto). En su lugar, crea automáticamente un nuevo commit que revierte los cambios del anterior.
 
 ---
 
@@ -823,8 +833,68 @@ Deshaciendo cosas
 		git reset --hard master~2 
 		
 	Mueve HEAD al 2º ancestro. Los últimos 2 commits de la rama desaparecerán si no estuvieran en otra rama 
+	
+---
+		
+* `git reset --hard HEAD`
 
+	Deshacer merge
+	
+---
+	
+* `git reset --soft HEAD~`
 
+	Deshace el último commit pero dejando los ficheros en estado staged.
+	
+	La opción `--mixed` dejará los cambios en estado unstaged.
+
+---
+
+* `git reset HEAD~1`
+
+	Deshacer el último commit dejando los ficheros commiteados como unstaged
+
+---
+
+* `git reset --hard HEAD~1`
+
+	Deshacer el último commit y elimina completamente todos los cambios commiteados
+	
+---
+
+* `git reflog`
+
+	Muestra cronologicamente todos los movimientos que hemos realizado sobre el puntero HEAD (checkout, commit, merge, rebase, cherry-pick, etc.)
+	
+	Por ejemplo:
+	
+		8ffe198 (HEAD -> develop, origin/develop) HEAD@{0}: reset: moving to HEAD
+		8ffe198 (HEAD -> develop, origin/develop) HEAD@{1}: commit: Último commit del curso de la UPM
+		9dd51ed HEAD@{2}: commit: Añadimos notas tomadas del curso de la UPM
+		24aeb76 HEAD@{3}: commit: Añadimos notas tomadas del curso de la UPM
+		b261c9b HEAD@{4}: commit: Añadimos notas tomadas del curso de la UPM
+		c4b3b38 (origin/master, master) HEAD@{5}: checkout: moving from master to develop
+		c4b3b38 (origin/master, master) HEAD@{6}: merge develop: Fast-forward
+		4a17cc1 HEAD@{7}: checkout: moving from develop to master
+		c4b3b38 (origin/master, master) HEAD@{8}: commit: Últimos comentarios sobre commit reset
+		
+		...
+		
+		34e5507 HEAD@{122}: merge develop: Fast-forward
+		0f1d84c HEAD@{123}: checkout: moving from develop to master
+		34e5507 HEAD@{124}: commit: Añadido documento 'A successful Git branching model.pdf'
+		0f1d84c HEAD@{125}: checkout: moving from master to develop
+		0f1d84c HEAD@{126}: commit (initial): Commit inicial del proyecto
+		
+	A continuación, podemos crear una nueva rama apuntando al commit concreto que nos interese:
+	
+		git branch nuevaRama <commit>
+		
+	Aunque podíamos haber ejecutado `git reset <commit>` para volver a ese estado, es mas seguro hacerlo primero creando una nueva rama para asegurarnos que ese es el estado que nos interesa.
+	
+	>¡De esta forma incluso podrías recuperar una rama que has borrado por error!
+
+	
 Remote Branching
 ----------------
 
