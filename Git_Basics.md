@@ -499,11 +499,11 @@ Remotes
 
 * `git push origin <branch>`
 
-	Actualiza la rama indicada en el remoto siempre que dicha rama ya exista.
+	Publica o actualiza la rama indicada en el remoto siempre que dicha rama ya exista.
 	
 * `git push --set-upstream <remote> <branch>`
 
-	Sube la rama indicada al repositorio remoto por primera vez. Por ejemplo:
+	Publica la rama indicada al repositorio remoto por primera vez. Por ejemplo:
 	
 		git push --set-upstream origin bug#IE-294
 		
@@ -589,6 +589,8 @@ Branching
 
 ---
 
+Una rama es simplemente un puntero a un commit determinado. La rama por defecto en git es `master`.
+
 Un commit consiste en una estructura de objetos formada por:
 	
 	(Usamos como ejemplo un directorio conteniendo tres archivos sobre los que hacemos stage y commit)
@@ -599,9 +601,10 @@ Un commit consiste en una estructura de objetos formada por:
 	2. Un objeto tree: contiene el contenido del directorio y por cada archivo un puntero al objeto blob 
 	correspondiente.
 		
-	3. Tres objetos blob (uno por archivo del directorio) con el contenido del archivo.
+	3. Tres objetos blob (uno por cada archivo del directorio) con el contenido del archivo.
 		
-Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se guarda un puntero al commit del que partió. Una rama es simplemente un puntero a un commit determinado. La rama por defecto en git es `master`.
+Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se guarda un puntero al commit del que partió. 
+
 	
 ---
 
@@ -609,25 +612,7 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 
 	Sin parámetros, muestra las ramas que tenemos en nuestro repositorio local. Un asterisco nos indica cual es la rama activa (en la que estamos situados).
 	
-	Con el parámetro -v nos da mas información a parte del nombre como por ejemplo el commit.
-
-* `git branch <nombreRama>`
-
-	Crea una nueva rama apuntando al commit en el que estás situado (pero no cambia la rama sobre la que estás)
-	
-	¿ Como sabe Git la rama en la que estás ? git mantiene un puntero especial llamado HEAD con el nombre de la rama actual (fichero `./.git/HEAD`)
-	
-	Con este comando tienes una representación muy acertada de a donde apunta cada commit:
-	
-		git log --oneline --decorate
-		
-	Este otro muestra una referencia visual del branching:
-	
-		git log --oneline --decorate --graph --all
-		
-	Si no se indica un *nombreRama*, el comando muestra todas las ramas disponibles y marca con un * la rama actual.
-	
-	Otros parámetros útiles para el comando git branch son:
+	Algunos parámetros útiles para el comando `git branch` son:
 	
 		-v	
 		
@@ -657,6 +642,27 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 			Si a continuación pones un nombreRama, el comando mostrará solo las ramas pendientes de mergear 
 			en *nombreRama*.
 
+
+* `git branch <nombreRama>`
+
+	Crea una nueva rama (*siempre en tu repositorio local*) apuntando al último commit de la rama en la que estás situado (pero no cambia la rama sobre la que estás).
+	
+	¿Como sabe Git la rama en la que estás? git mantiene un puntero especial llamado *HEAD* con el nombre de la rama actual (fichero `./.git/HEAD`)
+	
+	Con este comando tienes una representación muy acertada de a donde apunta cada commit:
+	
+		git log --oneline --decorate
+		
+	Este otro muestra una referencia visual del branching:
+	
+		git log --oneline --decorate --graph --all
+		
+	Si no se indica un *nombreRama*, el comando muestra todas las ramas disponibles y marca con un * la rama actual.
+	
+	Puedes indicar a Git el commit a partir del que quieres crear la nueva rama:
+	
+		git <nombreRama> <COMMIT>
+
 			
 * `git branch -d <nombreRama>`
 
@@ -676,7 +682,7 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 	
 	Si estamos en otra rama: `git branch -m <oldName> <newName>`.
 	
-	No es posible renombrar una rama remota. Tienes que eliminarla primero y volver a hacer el push con el nombre correcto:
+	No es posible renombrar una rama remota. Tienes que eliminarla primero y volver a hacer el push (es decir, publicarla) con el nombre correcto:
 	
 		# Rename the local branch to the new name
 		git branch -m <old_name> <new_name>
@@ -721,6 +727,17 @@ Al conjunto anterior lo llamamos Snapshot: cada vez que hacemos un commit se gua
 		
 ---
 
+* `git rebase <nombreRama>`
+
+	Otra forma de mergear los cambios entre ramas es mediante este comando. No es ni mejor ni peor, ni mas pro ni menos pro que `git merge` sino que dependiendo de la forma de trabajar del equipo o de la situación, nos puede interesar utilizar uno u otro.
+	
+	La diferencia entre ambos es la forma en la que queda la 'historia' de commits de la rama de destino:
+	
+		> Merge deja evidencia de los commits intermedios
+		
+		> Rebase: no deja evidencia de los commitos intermedios. La historia queda de forma lineal
+	
+---
 Resolviendo conflictos	
 ----------------------
 
@@ -899,6 +916,16 @@ Remote Branching
 ----------------
 
 ---
+
+El 95% del tiempo estaremos trabajando con ramas locales, es decir, que únicamente existen en nuestro repositorio local. Pero en algún momento tendremos que compartirlas con el equipo o necesitaremos trabajar con las ramas creadas por otros compañeros. Cuando una rama local 'sigue' a una rama remota, decimos que está trackeada o haciendo tracking de la rama remota.
+	
+Creamos una rama en el repositorio remoto cuando la publicamos mediante el comando `git push -u origin <branch>`.
+
+Para seguir una rama remota en nuestro repositorio local, tenemos dos formas de hacerlo:
+
+	`git branch --track <nueva-rama> origin/<base-branch>`
+	
+	`git checkout --track origin/<base-branch>`
 
 Las *referencias remotas* son referencias (punteros) en los repositorios remotos, incluyendo ramas (branches), tags, etc... Puedes obtener una lista completa de referencias remotas con el comando `git ls-remote` ó `git remote show`.
 
